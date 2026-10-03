@@ -42,6 +42,17 @@
       "enabled": false,
       "featured": false,
       "order": 4
+    },
+    {
+      "id": "maps",
+      "type": "maps",
+      "label": "Dove siamo",
+      "subtitle": "Apri Google Maps",
+      "url": "https://share.google/vc9NkQMv4axmKZRtM",
+      "iconText": "MAP",
+      "enabled": true,
+      "featured": true,
+      "order": 1
     }
   ]
 }
