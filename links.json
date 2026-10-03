@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "menu",
+      "type": "menu",
+      "label": "Menu",
+      "subtitle": "Consulta il nostro menu",
+      "url": "",
+      "iconText": "ME",
+      "enabled": false,
+      "featured": true,
+      "order": 1
+    },
+    {
+      "id": "order",
+      "type": "order",
+      "label": "Ordina online",
+      "subtitle": "Ritiro e consegna",
+      "url": "",
+      "iconText": "OR",
+      "enabled": false,
+      "featured": true,
+      "order": 2
+    },
+    {
+      "id": "instagram",
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "",
+      "iconText": "IG",
+      "enabled": false,
+      "featured": false,
+      "order": 3
+    },
+    {
+      "id": "reviews",
+      "type": "reviews",
+      "label": "Recensioni",
+      "url": "",
+      "iconText": "★",
+      "enabled": false,
+      "featured": false,
+      "order": 4
+    }
+  ]
+}
