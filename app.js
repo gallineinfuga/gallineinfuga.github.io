@@ -8,25 +8,29 @@ import {
 const copy = {
   it: {
     intro: "La fame ha trovato casa! Pizze, pollo allo spiedo e specialità tipiche siciliane, come la rosticceria. Scegli quello che preferisci: da asporto o con consegna a domicilio.",
-    menuEditorial: "Una pizza per cena, il pollo allo spiedo da portare a casa, la rosticceria palermitana da scegliere al banco. Sfoglia il menù e trova quello che ti va.",
-    categoryIntro: {pizzeria:"",polleria:"Il nostro pollo allo spiedo, tipico della tradizione palermitana, servito con patatine fritte o al forno.",sfiziosita:"Patatine, nuggets e antipasto siciliano: qualche sfizio in più, anche da condividere.","rosticceria-palermitana":"Da noi potrai trovare la vera essenza della tradizione palermitana. Vieni a scegliere direttamente al bancone.","rosticceria-mignon":"Una selezione di rosticceria mignon per i tuoi eventi e le tue ricorrenze. Ideale per buffet e momenti da condividere: prenota la tua selezione.",dolci:"Da noi non può mancare un must della tradizione siciliana: il cannolo siciliano.",bevande:""},
+    menuEditorial: "Di cosa hai voglia oggi? Dai un’occhiata alle nostre specialità e scegli quello che più ti stuzzica. Preparati a soddisfare la tua fame!",
+    categoryIntro: {"pizzeria":"Dai grandi classici, quelli intramontabili, alle ricette più sfiziose che fanno venire l’acquolina al primo sguardo! Da noi trovi la pizza giusta per ogni voglia. Attenzione: sceglierne una sola potrebbe essere difficile!","polleria":"Il nostro pezzo forte? Il Pollo allo spiedo! Croccante fuori, morbido e succoso dentro: una vera tentazione.\n\nAccompagnato da un contorno a scelta tra patatine fritte o al forno. E tante sfiziosità tipiche della casa per completare il tutto.\n\nPerché il pollo è buono, ma con due stuzzichini in più è tutta un’altra cosa!","sfiziosita":"Hai voglia di qualcosa in più?\n\nQui da Galline in Fuga la fame ha trovato casa e ogni boccone diventa una sfiziosità!\n\nCompleta il tuo ordine con patatine fritte, chicken nuggets oppure un fantastico antipasto Siciliano misto.\n\nA noi galline piace stare in compagnia: a tavola mettiamo sempre qualcosa al centro, perché condividere le cose buone le rende ancora più buone!","rosticceria-palermitana":"Il Palermitano dà il meglio di sé anche a tavola!\n\nI nostri banconi ti aspettano con tante bontà tipiche della tradizione, tra profumi invitanti, impasti dorati e sapori tutti da scoprire.\n\nPassa a trovarci e lasciati tentare dalle nostre proposte: sceglierne una sola sarà difficile!","rosticceria-mignon":"Piccoli assaggi, grandi occasioni!\n\nCompleanni, lauree, feste o una semplice voglia di stare insieme: ogni occasione è buona per condividere qualcosa di sfizioso!\n\nLa nostra rosticceria mignon porta in tavola tante piccole bontà, perfette per rendere speciale ogni momento.\n\nTu organizza il tuo evento. Al mangiare ci pensiamo noi!\n\nContattaci e prepariamo insieme la soluzione più adatta alla tua occasione.","dolci":"Per concludere in bellezza…\n\nIl classico che non tramonta mai è lui: il cannolo siciliano!\n\nCroccante fuori, cremoso dentro: il finale perfetto per concederti ancora un piccolo piacere.","bevande":"E non dimenticarti la bibita per accompagnare la cena!"},
+    hoursIntro: "Siamo aperti dal lunedì al sabato, dalle 16:00 alle 23:00.\n\nOppure, se preferisci, chiamaci e te lo portiamo noi a casa!",
+    sunday: "La domenica anche le galline riposano… la domenica galleggiamo!",
+    eventButton: "Organizza il tuo evento",
+    starter: "Una selezione accurata di specialità della tradizione Siciliana, ricca di bontà e con un irresistibile mix di sapori. Perfetta da mettere al centro della tavola e da condividere con chi vuoi… sempre che qualcuno non finisca tutto prima degli altri!",
     siteView: "Scopri i sapori",
     hubView: "Menù rapido",
     menu: "Menù",
-    menuBrowse: "Sfoglia il menù",
+    menuBrowse: "Scopri il menù",
     menuPrice: "Prezzo",
-    addedPizzaExtras: "Aggiunte pizza",
+    addedPizzaExtras: "Ingredienti in aggiunta",
     regular: "normale",
     family: "familiare",
-    allergy: "Per intolleranze e allergie, chiedi al nostro staff la lista degli allergeni.",
+    allergy: "Per informazioni sugli allergeni presenti nei prodotti, consulta la documentazione disponibile o rivolgiti al nostro staff prima di ordinare.",
     menuPending: "Prodotti e prezzi in aggiornamento",
     order: "Ordina online",
     contact: "Contatti",
-    promos: "Novità",
+    promos: "Promozioni",
     social: "Social",
     reviews: "Recensioni",
     hours: "Quando passi a trovarci?",
-    menuHint: "Apri la categoria per scegliere i nostri prodotti.",
+    menuHint: "Scegli una categoria per scoprire le nostre specialità.",
     service: "Da noi puoi trovare tutto, sia da asporto che con consegna a domicilio.",
     orderUnavailable: "Ordine online in preparazione",
     contactUnavailable: "Contatto WhatsApp in configurazione",
@@ -40,25 +44,29 @@ const copy = {
   },
   en: {
     intro: "Your appetite has found a home! Pizzas, rotisserie chicken and Sicilian specialities, including traditional savouries. Choose takeaway or home delivery.",
-    menuEditorial: "Pizza for dinner, rotisserie chicken to take home and Palermo savouries to choose at the counter. Explore the menu.",
-    categoryIntro: {pizzeria:"",polleria:"Our Palermo-style rotisserie chicken, served with fried or oven-baked potatoes.",sfiziosita:"Potatoes, nuggets and a mixed Sicilian starter.","rosticceria-palermitana":"Discover the essence of Palermo food traditions. Choose your favourites directly at the counter.","rosticceria-mignon":"A selection of mini savouries for events and special occasions. Ideal for buffets and sharing: book yours in advance.",dolci:"A Sicilian classic we could not leave out: the cannolo.",bevande:""},
+    menuEditorial: "What are you craving today? Explore our specialities and choose whatever tempts you most!",
+    categoryIntro: {"pizzeria":"From timeless classics to delicious creative recipes, there's a pizza for every craving. Choosing just one might be difficult!","polleria":"Our speciality? Rotisserie chicken! Crispy outside, tender and juicy inside, with your choice of fries or oven-baked potatoes and house specialities.","sfiziosita":"Fancy something extra? Add fries, chicken nuggets or a mixed Sicilian starter. Good food tastes even better when shared!","rosticceria-palermitana":"Palermo's food traditions at their finest! Visit our counter and discover golden, delicious local specialities.","rosticceria-mignon":"Small bites, big occasions! Birthdays, graduations, parties and gatherings: book our mini savouries for your event. You plan it; we'll take care of the food!","dolci":"A sweet ending… The timeless Sicilian cannolo: crispy outside, creamy inside.","bevande":"Don't forget a drink with your dinner!"},
+    hoursIntro: "Open Monday to Saturday, 16:00–23:00.\n\nOr call us and we'll deliver to your home!",
+    sunday: "Even our hens rest on Sundays… Sundays are for floating!",
+    eventButton: "Plan your event",
+    starter: "A carefully selected mix of Sicilian specialities, full of flavour and perfect for sharing.",
     siteView: "Explore our food",
     hubView: "Quick menu",
     menu: "Menu",
-    menuBrowse: "Browse the menu",
+    menuBrowse: "Explore the menu",
     menuPrice: "Price",
-    addedPizzaExtras: "Pizza extras",
+    addedPizzaExtras: "Extra ingredients",
     regular: "regular",
     family: "family",
-    allergy: "For intolerances and allergies, ask our staff for the allergen list.",
+    allergy: "For information about allergens, consult the available documentation or ask our staff before ordering.",
     menuPending: "Products and prices being updated",
     order: "Order online",
     contact: "Contact",
-    promos: "News",
+    promos: "Promotions",
     social: "Social",
     reviews: "Reviews",
     hours: "When will you visit us?",
-    menuHint: "Open a category to choose from our products.",
+    menuHint: "Choose a category to discover our specialities.",
     service: "Find all our specialities for takeaway or home delivery.",
     orderUnavailable: "Online ordering is being prepared",
     contactUnavailable: "WhatsApp contact is being configured",
@@ -163,7 +171,7 @@ function render(site, locale) {
     node("a", { text: t.siteView, href: "?view=site#menu", className: editorialMode ? "view-active" : "" }),
     node("a", { text: t.hubView, href: "./#menu", className: editorialMode ? "" : "view-active" })
   );
-  document.querySelector("#menu-editorial").hidden = !editorialMode;
+  document.querySelector("#menu-editorial").hidden = false;
   menu.replaceChildren();
   for (const category of site.categories) {
     const card = node("details", { className: "card menu-category" });
@@ -172,7 +180,7 @@ function render(site, locale) {
     const count = site.menuItems.filter(item => item.categoryId === category.id).length;
     summary.append(node("small", { text: String(count) }));
     card.append(summary);
-    if (editorialMode && t.categoryIntro[category.id]) card.append(node("p", { className: "category-intro", text: t.categoryIntro[category.id] }));
+    if (t.categoryIntro[category.id]) card.append(node("p", { className: "category-intro", text: t.categoryIntro[category.id] }));
     const money = (cents) => new Intl.NumberFormat(
       locale === "en" ? "en-IE" : "it-IT",
       { style: "currency", currency: "EUR" }
@@ -246,6 +254,8 @@ function render(site, locale) {
     ) {
       card.append(node("p", { className: "meta", text: t.weight }));
     }
+    if (category.id === "rosticceria-mignon" && site.capabilities.whatsapp?.enabled && site.capabilities.whatsapp.href) card.append(capabilityLink(site.capabilities.whatsapp, t.eventButton, t.contactUnavailable));
+    if (category.id === "sfiziosita") { const starter = site.menuItems.find(item => item.categoryId === category.id && /antipasto.*siciliano|siciliano.*misto/i.test(localized(item.name, "it"))); if (starter) card.append(node("p", {className:"category-intro", text:t.starter})); }
     if (category.id === "pizzeria") card.append(node("p", { className: "meta menu-notice", text: `${t.addedPizzaExtras}: ${t.regular} +${money(site.pizzaAdditions.regularCents)} · ${t.family} +${money(site.pizzaAdditions.familyCents)}` }));
     menu.append(card);
   }
@@ -259,6 +269,8 @@ function render(site, locale) {
   document.querySelector("#menu-allergies").textContent = t.allergy;
 
   document.querySelector("#hours-title").textContent = t.hours;
+  document.querySelector("#hours-intro").textContent = t.hoursIntro;
+  document.querySelector("#sunday-message").textContent = t.sunday;
   const hours = document.querySelector("#hours-list");
   hours.replaceChildren();
   for (const day of DAY_ORDER) {
@@ -275,6 +287,7 @@ function render(site, locale) {
     hours.append(row);
   }
 
+  document.querySelector("#promos-section").hidden = !site.promotions.some(p => p.active === true);
   document.querySelector("#promos-title").textContent = t.promos;
   document.querySelector("#promos-empty").textContent =
     site.promotions.length === 0 ? t.noPromos : "";
