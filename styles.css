@@ -302,3 +302,10 @@ footer {
 .category-intro{margin-top:16px;margin-bottom:8px;color:var(--muted);line-height:1.5;font-size:.92rem;max-width:65ch}
 .menu-category[open] .category-intro{display:block}
 .menu-category:not([open]) .category-intro{display:none}
+
+/* Two editorial presentations of the same canonical catalogue */
+.menu-view-switch{display:flex;gap:.65rem;flex-wrap:wrap;margin:1rem 0 1.25rem}
+.menu-view-switch a{display:inline-flex;padding:.65rem 1rem;border:1px solid #b66b58;border-radius:999px;color:#751d16;text-decoration:none;font-weight:700;background:#fffaf4}
+.menu-view-switch a.view-active{background:#9d251c;color:white;border-color:#9d251c}
+.menu-item__story{display:block;font-size:.9rem;line-height:1.5;margin-top:.45rem;color:#65443b;max-width:68ch}
+@media(max-width:600px){.menu-view-switch a{flex:1;justify-content:center;text-align:center}.menu-item__story{font-size:.85rem}}
