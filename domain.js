@@ -178,6 +178,16 @@ export function validateSiteData(site) {
         errors.push(`Missing bilingual name/ingredients: ${item.id}`);
       }
 
+      // Editorial copy is optional, but must be bilingual and cannot alter product facts.
+      if (item.editorial !== undefined) {
+        for (const channel of ["site", "hub", "order"]) {
+          const copy = item.editorial[channel];
+          if (!copy || typeof copy.it !== "string" || typeof copy.en !== "string") {
+            errors.push(`Missing bilingual editorial text: ${item.id}/${channel}`);
+          }
+        }
+      }
+
       const hasFixed = item.priceCents !== undefined;
       const hasChoices = item.priceChoicesCents !== undefined;
       const hasGroup = item.priceGroup !== undefined;
