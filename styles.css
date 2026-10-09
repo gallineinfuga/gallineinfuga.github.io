@@ -360,3 +360,25 @@ footer { border-top: 1px solid var(--line); }
   html { scroll-behavior: auto; }
   .action { transition: none; }
 }
+
+
+/* Navigation accessibility and small-screen polish */
+.skip-link {
+  position: absolute; left: 12px; top: -100px; z-index: 50;
+  padding: 12px 18px; background: #fff; color: #741010;
+  border: 2px solid #741010; border-radius: 10px; font-weight: 800;
+}
+.skip-link:focus { top: 10px; }
+.brand-mark { text-decoration: none; font-size: 1.8rem; line-height: 1; }
+.brand-mark:focus-visible { outline: 3px solid #d58a12; outline-offset: 4px; }
+.action--menu { border-color: #a81818; }
+.action--disabled { box-shadow: none; }
+#menu-additions { font-weight: 750; color: var(--brand-dark); }
+#menu-allergies { font-size: .9rem; }
+.menu-item__name { overflow-wrap: anywhere; }
+.menu-item .price { text-align: right; }
+@media (max-width: 480px) {
+  .menu-item { gap: 8px; }
+  .menu-item__ingredients { font-size: .82rem; }
+  .hero__content::before { width: 210px; height: 210px; right: -110px; top: -100px; border-width: 42px; }
+}
