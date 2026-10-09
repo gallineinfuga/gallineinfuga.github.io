@@ -7,23 +7,29 @@ import {
 
 const copy = {
   it: {
-    intro: "La fame ha trovato casa! Pizze, pollo allo spiedo e specialità tipiche siciliane, come la rosticceria. Scegli quello che preferisci: da asporto o con consegna a domicilio.",
+    intro: "Da noi troverai tante specialità all’insegna del gusto tipico siciliano: pizze, polli allo spiedo e rosticceria da banco. Che aspetti? Ordina per la consegna a casa oppure passa a ritirare.",
     menuEditorial: "Una pizza per cena, il pollo allo spiedo da portare a casa, la rosticceria palermitana da scegliere al banco. Sfoglia il menù e trova quello che ti va.",
     categoryIntro: {pizzeria:"",polleria:"Il nostro pollo allo spiedo, tipico della tradizione palermitana, servito con patatine fritte o al forno.",sfiziosita:"Patatine, nuggets e antipasto siciliano: qualche sfizio in più, anche da condividere.","rosticceria-palermitana":"Da noi potrai trovare la vera essenza della tradizione palermitana. Vieni a scegliere direttamente al bancone.","rosticceria-mignon":"Una selezione di rosticceria mignon per i tuoi eventi e le tue ricorrenze. Ideale per buffet e momenti da condividere: prenota la tua selezione.",dolci:"Da noi non può mancare un must della tradizione siciliana: il cannolo siciliano.",bevande:""},
     siteView: "Scopri i sapori",
     hubView: "Menù rapido",
     menu: "Menù",
-    menuBrowse: "Sfoglia il menù",
+    menuBrowse: "Menù",
     menuPrice: "Prezzo",
     addedPizzaExtras: "Aggiunte pizza",
     regular: "normale",
     family: "familiare",
     allergy: "Per intolleranze e allergie, chiedi al nostro staff la lista degli allergeni.",
     menuPending: "Prodotti e prezzi in aggiornamento",
-    order: "Ordina online",
+    order: "Ordina e passa a ritirare",
+    delivery: "Ordina e te lo consegniamo a casa",
+    titleHero: "Fame?\nSei nel posto giusto...",
+    hoursIntro: "Siamo operativi dal lunedì al sabato, dalle 16:00 alle 23:00.",
+    sundayFloat: "La domenica galleggiamo!",
+    reveal: "Scopri la sorpresa",
+    surprisePending: "Le novità arriveranno presto. Seguici per scoprirle!",
     contact: "Contatti",
     promos: "Novità",
-    social: "Social",
+    social: "Resta con noi",
     reviews: "Recensioni",
     hours: "Quando passi a trovarci?",
     menuHint: "Apri la categoria per scegliere i nostri prodotti.",
@@ -39,23 +45,29 @@ const copy = {
     closed: "Chiuso",
   },
   en: {
-    intro: "Your appetite has found a home! Pizzas, rotisserie chicken and Sicilian specialities, including traditional savouries. Choose takeaway or home delivery.",
+    intro: "Discover Sicilian flavours: pizza, rotisserie chicken and traditional counter specialties. Order for home delivery or come and collect your food.",
     menuEditorial: "Pizza for dinner, rotisserie chicken to take home and Palermo savouries to choose at the counter. Explore the menu.",
     categoryIntro: {pizzeria:"",polleria:"Our Palermo-style rotisserie chicken, served with fried or oven-baked potatoes.",sfiziosita:"Potatoes, nuggets and a mixed Sicilian starter.","rosticceria-palermitana":"Discover the essence of Palermo food traditions. Choose your favourites directly at the counter.","rosticceria-mignon":"A selection of mini savouries for events and special occasions. Ideal for buffets and sharing: book yours in advance.",dolci:"A Sicilian classic we could not leave out: the cannolo.",bevande:""},
     siteView: "Explore our food",
     hubView: "Quick menu",
     menu: "Menu",
-    menuBrowse: "Browse the menu",
+    menuBrowse: "Menu",
     menuPrice: "Price",
     addedPizzaExtras: "Pizza extras",
     regular: "regular",
     family: "family",
     allergy: "For intolerances and allergies, ask our staff for the allergen list.",
     menuPending: "Products and prices being updated",
-    order: "Order online",
+    order: "Order and collect",
+    delivery: "Order home delivery",
+    titleHero: "Hungry?\nYou’re in the right place...",
+    hoursIntro: "Open Monday to Saturday, 16:00–23:00.",
+    sundayFloat: "We float on Sundays!",
+    reveal: "Reveal a surprise",
+    surprisePending: "News and surprises are coming soon. Stay tuned!",
     contact: "Contact",
     promos: "News",
-    social: "Social",
+    social: "Stay connected",
     reviews: "Reviews",
     hours: "When will you visit us?",
     menuHint: "Open a category to choose from our products.",
@@ -126,32 +138,22 @@ function render(site, locale) {
   document.documentElement.lang = locale;
   document.title = site.brand.name;
 
-  document.querySelector("#brand-name").textContent = site.brand.name;
-  document.querySelector("#descriptor").textContent =
-    localized(site.brand.descriptor, locale);
-  document.querySelector("#service-mode").textContent = t.service;
+  document.querySelector("#brand-name").textContent = t.titleHero;
+  document.querySelector("#descriptor").textContent = "";
+  document.querySelector("#service-mode").textContent = "";
   document.querySelector("#editorial-intro").textContent = t.intro;
   document.querySelector("#menu-editorial").textContent = t.menuEditorial;
 
   const actions = document.querySelector("#primary-actions");
-  const menuAnchor = node("a", {
-    className: "action action--menu",
-    text: t.menuBrowse,
-    href: "#menu",
-  });
-  actions.replaceChildren(
-    menuAnchor,
-    capabilityLink(
-      site.capabilities.onlineOrdering,
-      t.order,
-      t.orderUnavailable,
-    ),
-    capabilityLink(
-      site.capabilities.whatsapp,
-      t.contact,
-      t.contactUnavailable,
-    ),
-  );
+  const menuAnchor = node("a", { className: "action action--menu", text: t.menuBrowse, href: "#menu" });
+  // A real checkout is intentionally not linked until independently verified.
+  const pickup = site.capabilities.onlineOrdering?.enabled && site.capabilities.onlineOrdering?.href
+    ? capabilityLink(site.capabilities.onlineOrdering, t.order, t.orderUnavailable)
+    : node("span", { className: "action action--disabled", text: t.order + " · " + t.orderUnavailable });
+  const delivery = node("span", { className: "action action--disabled", text: t.delivery + " · " + t.orderUnavailable });
+  pickup.setAttribute("aria-disabled", String(pickup.tagName !== "A"));
+  delivery.setAttribute("aria-disabled", "true");
+  actions.replaceChildren(menuAnchor, pickup, delivery);
 
   const menuTitle = document.querySelector("#menu-title");
   menuTitle.textContent = t.menu;
@@ -259,6 +261,8 @@ function render(site, locale) {
   document.querySelector("#menu-allergies").textContent = t.allergy;
 
   document.querySelector("#hours-title").textContent = t.hours;
+  document.querySelector("#hours-intro").textContent = t.hoursIntro;
+  document.querySelector("#sunday-floating").textContent = t.sundayFloat;
   const hours = document.querySelector("#hours-list");
   hours.replaceChildren();
   for (const day of DAY_ORDER) {
@@ -276,8 +280,9 @@ function render(site, locale) {
   }
 
   document.querySelector("#promos-title").textContent = t.promos;
+  document.querySelector("#promo-reveal-label").textContent = t.reveal;
   document.querySelector("#promos-empty").textContent =
-    site.promotions.length === 0 ? t.noPromos : "";
+    site.promotions.length === 0 ? t.surprisePending : "";
 
   document.querySelector("#social-title").textContent = t.social;
   document.querySelector("#social-empty").textContent =
@@ -292,6 +297,19 @@ function render(site, locale) {
       t.reviewsUnavailable,
     ),
   );
+
+  const surprise = document.querySelector("#promo-reveal");
+  const promoPanel = document.querySelector("#promo-panel");
+  surprise.onclick = () => {
+    const opened = surprise.getAttribute("aria-expanded") === "true";
+    surprise.setAttribute("aria-expanded", String(!opened));
+    promoPanel.hidden = opened;
+    if (!opened) {
+      surprise.classList.remove("promo-pop");
+      void surprise.offsetWidth;
+      surprise.classList.add("promo-pop");
+    }
+  };
 
   document.querySelectorAll("[data-locale]").forEach((button) => {
     button.setAttribute(
