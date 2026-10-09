@@ -353,3 +353,15 @@ h3, h4 { line-height: 1.25; }
   .menu-items--pizza .price--choice { font-size: var(--type-price); }
   .pizza-price-header { font-size: .75rem; text-transform: none; }
 }
+
+/* HUB-MAP-001: brand-specific, responsive map presentation */
+.location-section{background:linear-gradient(145deg,#fff6df,#fff0d5);border-color:#d99a69}
+.location-section h2{color:#a81818}
+#location-address{font-weight:750;color:#704032}
+.location-map{height:clamp(270px,52vw,420px);width:100%;border:3px solid #b75b35;border-radius:18px;overflow:hidden;background:#f7e6c7}
+.location-section .action{border:0;cursor:pointer}
+.location-section .action--menu{border:1px solid #a81818}
+.location-section .action:focus-visible{outline:3px solid #d88c19;outline-offset:3px}
+.location-map .leaflet-control-zoom a{color:#a81818;background:#fff6df}
+.location-map .leaflet-control-attribution{background:rgba(255,246,223,.94);font-size:11px}
+@media(max-width:480px){.location-map{height:320px}.location-section .actions{gap:10px}}
