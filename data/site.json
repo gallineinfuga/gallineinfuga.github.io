@@ -767,8 +767,8 @@
       "priceCents": 800,
       "editorial": {
         "site": {
-          "it": "Il nostro pollo allo spiedo, in mezza porzione.",
-          "en": "Our rotisserie chicken, in a half portion."
+          "it": "Accompagnato da patatine fritte o al forno e dalla salsicceria tipica della casa.",
+          "en": "Served with fried or oven-baked potatoes and the house's traditional sausages."
         },
         "hub": {
           "it": "Mezzo pollo allo spiedo",
@@ -790,8 +790,8 @@
       "priceCents": 1600,
       "editorial": {
         "site": {
-          "it": "Il pollo allo spiedo intero, per chi preferisce una porzione da condividere.",
-          "en": "A whole rotisserie chicken, ready to share."
+          "it": "Accompagnato da patatine fritte o al forno e dalla salsicceria tipica della casa.",
+          "en": "Served with fried or oven-baked potatoes and the house's traditional sausages."
         },
         "hub": {
           "it": "Pollo intero allo spiedo",
@@ -905,8 +905,8 @@
       "priceCents": 600,
       "editorial": {
         "site": {
-          "it": "Una selezione mista che richiama la tradizione siciliana. Chiedi al personale quali specialità comprende.",
-          "en": "A mixed selection inspired by Sicilian savouries. Ask our staff what is included."
+          "it": "Una selezione mista che richiama la tradizione siciliana, da gustare in compagnia, prima o durante il pasto.",
+          "en": "A mixed selection inspired by Sicilian traditions, to enjoy together before or during the meal."
         },
         "hub": {
           "it": "Antipasto siciliano misto",
@@ -929,8 +929,8 @@
       "saleRule": "counter-only",
       "editorial": {
         "site": {
-          "it": "Le specialità della tradizione palermitana si scelgono direttamente al banco.",
-          "en": "Traditional Palermo savouries are selected directly at the counter."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Rosticceria palermitana · al pezzo",
@@ -953,8 +953,8 @@
       "unit": "kg",
       "editorial": {
         "site": {
-          "it": "Il formato mignon è pensato anche per buffet e occasioni da condividere.",
-          "en": "Mini savouries are also suited to buffets and gatherings."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Rosticceria mignon classica",
@@ -976,8 +976,8 @@
       "priceCents": 200,
       "editorial": {
         "site": {
-          "it": "Un classico della pasticceria siciliana, con ripieno di ricotta.",
-          "en": "A Sicilian pastry classic with ricotta filling."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Cannolo con ricotta",
@@ -1013,11 +1013,11 @@
       }
     },
     {
-      "id": "lattine",
+      "id": "coca-cola",
       "categoryId": "bevande",
       "name": {
-        "it": "Bibite in lattina · 33 cl",
-        "en": "Canned soft drinks · 33 cl"
+        "it": "Coca-Cola · 33 cl",
+        "en": "Coca-Cola · 33 cl"
       },
       "priceCents": 200,
       "editorial": {
@@ -1026,12 +1026,81 @@
           "en": ""
         },
         "hub": {
-          "it": "Bibite in lattina · 33 cl",
-          "en": "Canned soft drinks · 33 cl"
+          "it": "Coca-Cola · 33 cl",
+          "en": "Coca-Cola · 33 cl"
         },
         "order": {
-          "it": "Bibite in lattina · 33 cl",
-          "en": "Canned soft drinks · 33 cl"
+          "it": "Coca-Cola · 33 cl",
+          "en": "Coca-Cola · 33 cl"
+        }
+      }
+    },
+    {
+      "id": "coca-cola-zero",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Coca-Cola Zero · 33 cl",
+        "en": "Coca-Cola Zero · 33 cl"
+      },
+      "priceCents": 200,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Coca-Cola Zero · 33 cl",
+          "en": "Coca-Cola Zero · 33 cl"
+        },
+        "order": {
+          "it": "Coca-Cola Zero · 33 cl",
+          "en": "Coca-Cola Zero · 33 cl"
+        }
+      }
+    },
+    {
+      "id": "fanta",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Fanta · 33 cl",
+        "en": "Fanta · 33 cl"
+      },
+      "priceCents": 200,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Fanta · 33 cl",
+          "en": "Fanta · 33 cl"
+        },
+        "order": {
+          "it": "Fanta · 33 cl",
+          "en": "Fanta · 33 cl"
+        }
+      }
+    },
+    {
+      "id": "sprite",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Sprite · 33 cl",
+        "en": "Sprite · 33 cl"
+      },
+      "priceCents": 200,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Sprite · 33 cl",
+          "en": "Sprite · 33 cl"
+        },
+        "order": {
+          "it": "Sprite · 33 cl",
+          "en": "Sprite · 33 cl"
         }
       }
     },
