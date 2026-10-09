@@ -160,8 +160,8 @@ function render(site, locale) {
   const editorialMode = new URLSearchParams(location.search).get("view") === "site";
   const viewSwitch = document.querySelector("#menu-view-switch");
   viewSwitch.replaceChildren(
-    node("a", { text: t.siteView, href: "?view=site#menu", className: editorialMode ? "view-active" : "" }),
-    node("a", { text: t.hubView, href: "./#menu", className: editorialMode ? "" : "view-active" })
+    node("a", { text: t.siteView, href: `?view=site&lang=${locale}#menu`, className: editorialMode ? "view-active" : "" }),
+    node("a", { text: t.hubView, href: `?lang=${locale}#menu`, className: editorialMode ? "" : "view-active" })
   );
   document.querySelector("#menu-editorial").hidden = !editorialMode;
   menu.replaceChildren();
