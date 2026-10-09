@@ -7,6 +7,9 @@ import {
 
 const copy = {
   it: {
+    intro: "La fame ha trovato casa. Pizza, pollo allo spiedo e specialità di rosticceria: scegli quello che ti va, da asporto o con consegna a domicilio.",
+    menuEditorial: "Dalle pizze alle specialità palermitane, scopri le nostre proposte e scegli il formato che preferisci.",
+    categoryIntro: {pizzeria:"Dalle Classiche alle Speciali, fino a Ma che Bontà: trova la tua pizza.",polleria:"Il pollo allo spiedo e le proposte della polleria.",sfiziosita:"Qualcosa di sfizioso per completare il tuo ordine.","rosticceria-palermitana":"I sapori della tradizione palermitana, disponibili al banco.","rosticceria-mignon":"Piccole specialità da condividere, prenotabili a multipli di mezzo chilo.",dolci:"Un finale dolce? Scopri le proposte disponibili.",bevande:"Scegli cosa bere insieme al tuo ordine."},
     menu: "Menù",
     menuBrowse: "Sfoglia il menù",
     menuPrice: "Prezzo",
@@ -34,6 +37,9 @@ const copy = {
     closed: "Chiuso",
   },
   en: {
+    intro: "Your appetite has found a home. Pizza, rotisserie chicken and Sicilian savouries, for takeaway or delivery.",
+    menuEditorial: "Explore our pizzas, Palermo specialities and more, then choose your preferred size.",
+    categoryIntro: {pizzeria:"From classics to specials: find your pizza.",polleria:"Rotisserie chicken and our chicken dishes.",sfiziosita:"Something tasty to complete your order.","rosticceria-palermitana":"Traditional Palermo savouries, available at the counter.","rosticceria-mignon":"Bite-sized savouries to share, available to pre-order in half-kilo increments.",dolci:"Finish on a sweet note with our available desserts.",bevande:"Find a drink to go with your order."},
     menu: "Menu",
     menuBrowse: "Browse the menu",
     menuPrice: "Price",
@@ -120,6 +126,8 @@ function render(site, locale) {
   document.querySelector("#descriptor").textContent =
     localized(site.brand.descriptor, locale);
   document.querySelector("#service-mode").textContent = t.service;
+  document.querySelector("#editorial-intro").textContent = t.intro;
+  document.querySelector("#menu-editorial").textContent = t.menuEditorial;
 
   const actions = document.querySelector("#primary-actions");
   const menuAnchor = node("a", {
@@ -153,6 +161,7 @@ function render(site, locale) {
     const count = site.menuItems.filter(item => item.categoryId === category.id).length;
     summary.append(node("small", { text: String(count) }));
     card.append(summary);
+    card.append(node("p", { className: "category-intro", text: t.categoryIntro[category.id] || "" }));
     const money = (cents) => new Intl.NumberFormat(
       locale === "en" ? "en-IE" : "it-IT",
       { style: "currency", currency: "EUR" }
