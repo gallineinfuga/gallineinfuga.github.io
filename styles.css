@@ -365,3 +365,11 @@ h3, h4 { line-height: 1.25; }
 .location-map .leaflet-control-zoom a{color:#a81818;background:#fff6df}
 .location-map .leaflet-control-attribution{background:rgba(255,246,223,.94);font-size:11px}
 @media(max-width:480px){.location-map{height:320px}.location-section .actions{gap:10px}}
+
+/* HUB-CONTACT-002: large touch targets, existing brand palette */
+.contact-section{background:linear-gradient(145deg,#fffdf7,#fff0d5)}
+.contact-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.contact-action{border-radius:18px;min-height:76px;justify-content:flex-start;gap:14px;text-align:left;line-height:1.3}
+.contact-action>span:first-child{font-size:1.65rem;min-width:30px;text-align:center}
+.contact-action small{font-size:.78rem;font-weight:500;opacity:.94}
+@media(max-width:600px){.contact-actions{grid-template-columns:1fr}.contact-action{width:100%}}
