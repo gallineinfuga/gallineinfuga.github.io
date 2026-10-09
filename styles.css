@@ -373,3 +373,7 @@ h3, h4 { line-height: 1.25; }
 .contact-action>span:first-child{font-size:1.65rem;min-width:30px;text-align:center}
 .contact-action small{font-size:.78rem;font-weight:500;opacity:.94}
 @media(max-width:600px){.contact-actions{grid-template-columns:1fr}.contact-action{width:100%}}
+
+/* Keyboard-accessible skip navigation */
+.skip-link{position:absolute;top:8px;left:8px;z-index:10000;transform:translateY(-160%);background:#fffdf7;color:#741010;padding:12px 16px;border:3px solid #741010;border-radius:8px;font-weight:800}
+.skip-link:focus{transform:translateY(0)}
