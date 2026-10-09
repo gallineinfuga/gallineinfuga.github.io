@@ -396,8 +396,7 @@
     },
     {
       "id": "nutellosa",
-      "categoryId": "pizzeria",
-      "priceGroup": "pizze-dolci",
+      "categoryId": "dolci",
       "name": {
         "it": "NUTELLOSA",
         "en": "NUTELLOSA"
@@ -405,7 +404,8 @@
       "ingredients": {
         "it": "Nutella, ricotta, granella di pistacchi",
         "en": "Nutella, ricotta, chopped pistachios"
-      }
+      },
+      "priceCents": 750
     },
     {
       "id": "mezzo-pollo",
@@ -622,24 +622,6 @@
             "en": "Family"
           },
           "priceCents": 2000
-        }
-      ]
-    },
-    {
-      "id": "pizze-dolci",
-      "categoryId": "pizzeria",
-      "name": {
-        "it": "Pizze dolci",
-        "en": "Dessert Pizzas"
-      },
-      "prices": [
-        {
-          "id": "unico",
-          "label": {
-            "it": "Formato unico",
-            "en": "One size"
-          },
-          "priceCents": 750
         }
       ]
     }
