@@ -309,3 +309,47 @@ footer {
 .menu-view-switch a.view-active{background:#9d251c;color:white;border-color:#9d251c}
 .menu-item__story{display:block;font-size:.9rem;line-height:1.5;margin-top:.45rem;color:#65443b;max-width:68ch}
 @media(max-width:600px){.menu-view-switch a{flex:1;justify-content:center;text-align:center}.menu-item__story{font-size:.85rem}}
+
+/* Typography system v1 — accessible, local, reversible */
+:root {
+  --font-ui: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --type-body: 1rem;
+  --type-detail: .875rem;
+  --type-product: 1.0625rem;
+  --type-price: 1rem;
+  --type-section: clamp(1.75rem, 4.5vw, 2.75rem);
+  --text-secondary: #654b41;
+  font-family: var(--font-ui);
+  line-height: 1.5;
+}
+h1 { line-height: 1.04; overflow-wrap: break-word; }
+h2 { font-size: var(--type-section); line-height: 1.16; }
+h3, h4 { line-height: 1.25; }
+.menu-item__name { font-size: var(--type-product); line-height: 1.35; font-weight: 700; }
+.menu-item__ingredients, .menu-item__story, .category-intro {
+  font-size: var(--type-detail);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.menu-item .price, .menu-items--pizza .price--choice {
+  font-size: var(--type-price);
+  line-height: 1.35;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.pizza-price-header { font-size: .75rem; line-height: 1.35; }
+.menu-group__prices, .menu-category__toggle small { font-size: var(--type-detail); }
+.action, .menu-view-switch a, .languages button { line-height: 1.35; }
+.menu-view-switch a:focus-visible, .action:focus-visible, .languages button:focus-visible,
+.legal-links a:focus-visible, .simple-page a:focus-visible {
+  outline: 3px solid var(--brand-dark);
+  outline-offset: 3px;
+}
+@media (max-width: 420px) {
+  .menu-items--pizza .menu-item, .pizza-price-header {
+    grid-template-columns: minmax(0, 1fr) minmax(66px, auto) minmax(66px, auto);
+    gap: 6px;
+  }
+  .menu-items--pizza .price--choice { font-size: var(--type-price); }
+  .pizza-price-header { font-size: .75rem; text-transform: none; }
+}
