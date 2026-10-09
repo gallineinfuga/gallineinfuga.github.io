@@ -309,3 +309,23 @@ footer {
 .menu-view-switch a.view-active{background:#9d251c;color:white;border-color:#9d251c}
 .menu-item__story{display:block;font-size:.9rem;line-height:1.5;margin-top:.45rem;color:#65443b;max-width:68ch}
 @media(max-width:600px){.menu-view-switch a{flex:1;justify-content:center;text-align:center}.menu-item__story{font-size:.85rem}}
+
+/* Art Director: legibility, tap targets and predictable mobile price columns */
+:root { --focus-ring: #8b261b; --content-measure: 68ch; }
+html { scroll-behavior: smooth; }
+:where(a, button, summary):focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 4px; }
+.languages button { min-height: 44px; min-width: 44px; }
+.menu-category__toggle { line-height: 1.35; }
+.menu-item__name { line-height: 1.35; }
+.menu-item__ingredients { font-size: .875rem; line-height: 1.5; }
+.menu-items--pizza .menu-item { align-items: baseline; }
+.menu-items--pizza .price--choice { font-variant-numeric: tabular-nums; font-weight: 750; }
+.menu-category[open] { border-color: #d7b79b; }
+.menu-category__toggle:hover { background: #fff8e9; }
+@media (max-width: 420px) {
+  .menu-items--pizza .menu-item,
+  .pizza-price-header { grid-template-columns: minmax(0,1fr) minmax(61px,72px) minmax(61px,72px); }
+  .menu-items--pizza .price--choice { font-size: .875rem; }
+  .menu-item__ingredients { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
