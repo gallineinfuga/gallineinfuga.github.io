@@ -10,6 +10,8 @@ const copy = {
     intro: "La fame ha trovato casa. Pizza, pollo allo spiedo e specialità di rosticceria: scegli quello che ti va, da asporto o con consegna a domicilio.",
     menuEditorial: "Da Galline in Fuga trovi pizza, pollo allo spiedo, rosticceria palermitana e sfiziosità. Scegli quello che ti stuzzica e scopri le proposte disponibili.",
     categoryIntro: {pizzeria:"Dalle Classiche alle Speciali, fino a Ma che Bontà: trova la tua pizza.",polleria:"La tradizione che gira a regola d’arte: scegli tra mezzo pollo e pollo intero allo spiedo.",sfiziosita:"Perché il contorno giusto non è mai soltanto un contorno: patatine, nuggets e altre sfiziosità.","rosticceria-palermitana":"I sapori della tradizione, quelli che a Palermo non hanno bisogno di presentazioni. Specialità disponibili al banco.","rosticceria-mignon":"Piccole bontà da condividere: la rosticceria in formato mignon, prenotabile a multipli di mezzo chilo.",dolci:"Perché anche il finale merita il suo momento di gloria: scopri il cannolo e la Nutellosa.",bevande:"Tutto quello che serve per accompagnare il tuo ordine."},
+    siteView: "Scopri i sapori",
+    hubView: "Menù rapido",
     menu: "Menù",
     menuBrowse: "Sfoglia il menù",
     menuPrice: "Prezzo",
@@ -40,6 +42,8 @@ const copy = {
     intro: "Your appetite has found a home. Pizza, rotisserie chicken and Sicilian savouries, for takeaway or delivery.",
     menuEditorial: "Explore our pizzas, Palermo specialities and more, then choose your preferred size.",
     categoryIntro: {pizzeria:"From classics to specials: find your pizza.",polleria:"Rotisserie chicken and our chicken dishes.",sfiziosita:"Something tasty to complete your order.","rosticceria-palermitana":"Traditional Palermo savouries, available at the counter.","rosticceria-mignon":"Bite-sized savouries to share, available to pre-order in half-kilo increments.",dolci:"Finish on a sweet note with our available desserts.",bevande:"Find a drink to go with your order."},
+    siteView: "Explore our food",
+    hubView: "Quick menu",
     menu: "Menu",
     menuBrowse: "Browse the menu",
     menuPrice: "Price",
@@ -153,6 +157,13 @@ function render(site, locale) {
   menuTitle.textContent = t.menu;
   document.querySelector("#menu-hint").textContent = t.menuHint;
   const menu = document.querySelector("#menu-grid");
+  const editorialMode = new URLSearchParams(location.search).get("view") === "site";
+  const viewSwitch = document.querySelector("#menu-view-switch");
+  viewSwitch.replaceChildren(
+    node("a", { text: t.siteView, href: "?view=site#menu", className: editorialMode ? "view-active" : "" }),
+    node("a", { text: t.hubView, href: "./#menu", className: editorialMode ? "" : "view-active" })
+  );
+  document.querySelector("#menu-editorial").hidden = !editorialMode;
   menu.replaceChildren();
   for (const category of site.categories) {
     const card = node("details", { className: "card menu-category" });
@@ -161,7 +172,7 @@ function render(site, locale) {
     const count = site.menuItems.filter(item => item.categoryId === category.id).length;
     summary.append(node("small", { text: String(count) }));
     card.append(summary);
-    card.append(node("p", { className: "category-intro", text: t.categoryIntro[category.id] || "" }));
+    if (editorialMode) card.append(node("p", { className: "category-intro", text: t.categoryIntro[category.id] || "" }));
     const money = (cents) => new Intl.NumberFormat(
       locale === "en" ? "en-IE" : "it-IT",
       { style: "currency", currency: "EUR" }
@@ -185,6 +196,7 @@ function render(site, locale) {
             text: localized(item.ingredients, locale),
           }));
         }
+        if (editorialMode && item.editorial?.site) info.append(node("span", { className: "menu-item__story", text: localized(item.editorial.site, locale) }));
         row.append(info);
         if (category.id === "pizzeria" && !showPrices) {
           const group = site.menuGroups.find(group => group.id === item.priceGroup);
