@@ -31,7 +31,9 @@ const copy = {
     orderUnavailable: "Ordine online in preparazione",
     contactUnavailable: "Contatto WhatsApp in configurazione",
     reviewsUnavailable: "Link recensioni in configurazione",
-    counterOnly: "Disponibile al banco",
+    counterOnly: "Solo al banco · non ordinabile online",
+    eligibilityNote: "Le modalità di acquisto indicate non confermano la disponibilità in tempo reale.",
+    eligibleModes: "Modalità previste: asporto e delivery · ordinazione online non ancora attiva",
     weight: "Prenotabile a multipli di 0,5 kg",
     noPromos: "Le nuove promo compariranno qui.",
     noSocial: "I collegamenti social saranno pubblicati qui.",
@@ -63,7 +65,9 @@ const copy = {
     orderUnavailable: "Online ordering is being prepared",
     contactUnavailable: "WhatsApp contact is being configured",
     reviewsUnavailable: "Review link is being configured",
-    counterOnly: "Available at the counter",
+    counterOnly: "Counter only · not available to order online",
+    eligibilityNote: "Purchase options shown do not confirm real-time availability.",
+    eligibleModes: "Planned options: takeaway and delivery · online ordering not yet active",
     weight: "Pre-order in 0.5 kg increments",
     noPromos: "New promotions will appear here.",
     noSocial: "Social links will be published here.",
@@ -240,7 +244,10 @@ function render(site, locale) {
     }
     if (category.saleRule === "counter-only") {
       card.append(node("p", { className: "meta", text: t.counterOnly }));
-    } else if (
+    } else if (category.onlineOrderable === true) {
+      card.append(node("p", { className: "meta", text: t.eligibleModes }));
+    }
+    if (
       category.soldByWeight &&
       category.weightIncrementKg === 0.5
     ) {
@@ -256,7 +263,7 @@ function render(site, locale) {
   ).format(cents / 100);
   document.querySelector("#menu-additions").textContent =
     `${t.addedPizzaExtras}: ${t.regular} +${eur(extras.regularCents)} · ${t.family} +${eur(extras.familyCents)}`;
-  document.querySelector("#menu-allergies").textContent = t.allergy;
+  document.querySelector("#menu-allergies").textContent = `${t.eligibilityNote} ${t.allergy}`;
 
   document.querySelector("#hours-title").textContent = t.hours;
   const hours = document.querySelector("#hours-list");
