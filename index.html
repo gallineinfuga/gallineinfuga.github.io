@@ -6,8 +6,8 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#a81818">
   <meta name="description" content="Galline in Fuga — menu, ordini, contatti e novità.">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'; worker-src 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' https://unpkg.com; img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'; worker-src 'self'">
   <link rel="canonical" href="https://gallineinfuga.github.io/">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles.css">
@@ -64,6 +64,17 @@
       <div id="review-slot" class="actions"></div>
     </section>
 
+    <section id="dove-siamo" class="section section--panel location-section" aria-labelledby="location-title">
+      <h2 id="location-title">Dove siamo</h2>
+      <p id="location-address">Corso Alberto Amedeo 184, 90138 Palermo</p>
+      <div id="location-map" class="location-map" role="region" aria-label="Mappa di Palermo" hidden></div>
+      <p id="location-status" class="meta">La mappa si carica solo quando lo richiedi.</p>
+      <div class="actions">
+        <button id="location-load" class="action" type="button">Mostra mappa</button>
+        <a id="location-google" class="action action--menu" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Corso%20Alberto%20Amedeo%20184%2C%2090138%20Palermo">Apri in Google Maps</a>
+        <button id="location-copy" class="action action--menu" type="button">Copia indirizzo</button>
+      </div>
+    </section>
     <noscript>
       <p class="noscript">Per usare tutte le funzioni dell’HUB è necessario JavaScript. Gli orari principali restano: lunedì–sabato 16:00–23:00, domenica chiuso.</p>
     </noscript>
@@ -81,5 +92,6 @@
   </footer>
 
   <script type="module" src="./app.js"></script>
+  <script type="module" src="./location.js"></script>
 </body>
 </html>
