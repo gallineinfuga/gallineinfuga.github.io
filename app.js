@@ -7,9 +7,9 @@ import {
 
 const copy = {
   it: {
-    intro: "La fame ha trovato casa. Pizza, pollo allo spiedo e specialità di rosticceria: scegli quello che ti va, da asporto o con consegna a domicilio.",
+    intro: "La fame ha trovato casa! Pizze, pollo allo spiedo e specialità tipiche siciliane, come la rosticceria. Scegli quello che preferisci: da asporto o con consegna a domicilio.",
     menuEditorial: "Una pizza per cena, il pollo allo spiedo da portare a casa, la rosticceria palermitana da scegliere al banco. Sfoglia il menù e trova quello che ti va.",
-    categoryIntro: {pizzeria:"Le Classiche, Le Speciali e Ma che Bontà... Ogni pizza ha i suoi ingredienti; i prezzi sono indicati per normale e familiare.",polleria:"Il pollo allo spiedo, intero o a metà: scegli la porzione che preferisci.",sfiziosita:"Patatine, nuggets e antipasto siciliano: qualche sfizio in più, anche da condividere.","rosticceria-palermitana":"La rosticceria palermitana si sceglie al banco, secondo le specialità disponibili.","rosticceria-mignon":"Per buffet e occasioni da condividere: prenotazione a multipli di 0,5 kg.",dolci:"Cannolo con ricotta o Nutellosa? C’è spazio anche per il dolce.",bevande:"Acqua, bibite in lattina e birre assortite."},
+    categoryIntro: {pizzeria:"",polleria:"Il nostro pollo allo spiedo, tipico della tradizione palermitana, servito con patatine fritte o al forno.",sfiziosita:"Patatine, nuggets e antipasto siciliano: qualche sfizio in più, anche da condividere.","rosticceria-palermitana":"Da noi potrai trovare la vera essenza della tradizione palermitana. Vieni a scegliere direttamente al bancone.","rosticceria-mignon":"Una selezione di rosticceria mignon per i tuoi eventi e le tue ricorrenze. Ideale per buffet e momenti da condividere: prenota la tua selezione.",dolci:"Da noi non può mancare un must della tradizione siciliana: il cannolo siciliano.",bevande:""},
     siteView: "Scopri i sapori",
     hubView: "Menù rapido",
     menu: "Menù",
@@ -18,7 +18,7 @@ const copy = {
     addedPizzaExtras: "Aggiunte pizza",
     regular: "normale",
     family: "familiare",
-    allergy: "Per intolleranze o allergie chiedi al nostro staff. La lista non sostituisce le informazioni sugli allergeni.",
+    allergy: "Per intolleranze e allergie, chiedi al nostro staff la lista degli allergeni.",
     menuPending: "Prodotti e prezzi in aggiornamento",
     order: "Ordina online",
     contact: "Contatti",
@@ -26,8 +26,8 @@ const copy = {
     social: "Social",
     reviews: "Recensioni",
     hours: "Quando passi a trovarci?",
-    menuHint: "Apri una categoria per vedere prodotti e prezzi.",
-    service: "Solo asporto e consegna a domicilio",
+    menuHint: "Apri la categoria per scegliere i nostri prodotti.",
+    service: "Da noi puoi trovare tutto, sia da asporto che con consegna a domicilio.",
     orderUnavailable: "Ordine online in preparazione",
     contactUnavailable: "Contatto WhatsApp in configurazione",
     reviewsUnavailable: "Link recensioni in configurazione",
@@ -39,9 +39,9 @@ const copy = {
     closed: "Chiuso",
   },
   en: {
-    intro: "Your appetite has found a home. Pizza, rotisserie chicken and Sicilian savouries, for takeaway or delivery.",
+    intro: "Your appetite has found a home! Pizzas, rotisserie chicken and Sicilian specialities, including traditional savouries. Choose takeaway or home delivery.",
     menuEditorial: "Pizza for dinner, rotisserie chicken to take home and Palermo savouries to choose at the counter. Explore the menu.",
-    categoryIntro: {pizzeria:"Classics, specials and our featured pizzas. Prices are shown for regular and family sizes.",polleria:"Rotisserie chicken, whole or half.",sfiziosita:"Potatoes, nuggets and a mixed Sicilian starter.","rosticceria-palermitana":"Traditional Palermo savouries are selected at the counter, subject to availability.","rosticceria-mignon":"Mini savouries for sharing, available to pre-order in 0.5 kg increments.",dolci:"Ricotta cannolo or Nutellosa: leave room for dessert.",bevande:"Water, canned soft drinks and assorted beers."},
+    categoryIntro: {pizzeria:"",polleria:"Our Palermo-style rotisserie chicken, served with fried or oven-baked potatoes.",sfiziosita:"Potatoes, nuggets and a mixed Sicilian starter.","rosticceria-palermitana":"Discover the essence of Palermo food traditions. Choose your favourites directly at the counter.","rosticceria-mignon":"A selection of mini savouries for events and special occasions. Ideal for buffets and sharing: book yours in advance.",dolci:"A Sicilian classic we could not leave out: the cannolo.",bevande:""},
     siteView: "Explore our food",
     hubView: "Quick menu",
     menu: "Menu",
@@ -50,7 +50,7 @@ const copy = {
     addedPizzaExtras: "Pizza extras",
     regular: "regular",
     family: "family",
-    allergy: "For intolerances or allergies, ask our staff. This menu is not an allergen chart.",
+    allergy: "For intolerances and allergies, ask our staff for the allergen list.",
     menuPending: "Products and prices being updated",
     order: "Order online",
     contact: "Contact",
@@ -58,8 +58,8 @@ const copy = {
     social: "Social",
     reviews: "Reviews",
     hours: "When will you visit us?",
-    menuHint: "Open a category to see products and prices.",
-    service: "Takeaway and delivery only",
+    menuHint: "Open a category to choose from our products.",
+    service: "Find all our specialities for takeaway or home delivery.",
     orderUnavailable: "Online ordering is being prepared",
     contactUnavailable: "WhatsApp contact is being configured",
     reviewsUnavailable: "Review link is being configured",
@@ -172,7 +172,7 @@ function render(site, locale) {
     const count = site.menuItems.filter(item => item.categoryId === category.id).length;
     summary.append(node("small", { text: String(count) }));
     card.append(summary);
-    if (editorialMode) card.append(node("p", { className: "category-intro", text: t.categoryIntro[category.id] || "" }));
+    if (editorialMode && t.categoryIntro[category.id]) card.append(node("p", { className: "category-intro", text: t.categoryIntro[category.id] }));
     const money = (cents) => new Intl.NumberFormat(
       locale === "en" ? "en-IE" : "it-IT",
       { style: "currency", currency: "EUR" }
@@ -246,6 +246,7 @@ function render(site, locale) {
     ) {
       card.append(node("p", { className: "meta", text: t.weight }));
     }
+    if (category.id === "pizzeria") card.append(node("p", { className: "meta menu-notice", text: `${t.addedPizzaExtras}: ${t.regular} +${money(site.pizzaAdditions.regularCents)} · ${t.family} +${money(site.pizzaAdditions.familyCents)}` }));
     menu.append(card);
   }
 
@@ -254,8 +255,7 @@ function render(site, locale) {
     locale === "en" ? "en-IE" : "it-IT",
     { style: "currency", currency: "EUR" }
   ).format(cents / 100);
-  document.querySelector("#menu-additions").textContent =
-    `${t.addedPizzaExtras}: ${t.regular} +${eur(extras.regularCents)} · ${t.family} +${eur(extras.familyCents)}`;
+  document.querySelector("#menu-additions").textContent = "";
   document.querySelector("#menu-allergies").textContent = t.allergy;
 
   document.querySelector("#hours-title").textContent = t.hours;
