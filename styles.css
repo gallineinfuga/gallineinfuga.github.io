@@ -295,3 +295,10 @@ footer {
 .pizza-price-header span:not(:first-child),.menu-items--pizza .price--choice{text-align:right}
 .menu-items--pizza .price--choice{font-size:.9rem;white-space:nowrap}
 @media(max-width:420px){.menu-items--pizza .menu-item,.pizza-price-header{grid-template-columns:minmax(0,1fr) 65px 65px;gap:5px}.menu-items--pizza .price--choice{font-size:.82rem}.pizza-price-header{font-size:.68rem}}
+
+/* Editorial layer: lightweight and distinct from transaction rows */
+.editorial-intro{max-width:62ch;font-size:clamp(1rem,2.5vw,1.22rem);line-height:1.6;color:var(--ink);margin:18px 0 8px}
+.editorial-intro--menu{font-size:1rem;color:var(--muted);margin-bottom:24px}
+.category-intro{margin-top:16px;margin-bottom:8px;color:var(--muted);line-height:1.5;font-size:.92rem;max-width:65ch}
+.menu-category[open] .category-intro{display:block}
+.menu-category:not([open]) .category-intro{display:none}
