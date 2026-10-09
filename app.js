@@ -20,7 +20,8 @@ const copy = {
     promos: "Novità",
     social: "Social",
     reviews: "Recensioni",
-    hours: "Orari",
+    hours: "Quando passi a trovarci?",
+    menuHint: "Scegli una categoria per scoprire i prodotti.",
     service: "Solo asporto e consegna a domicilio",
     orderUnavailable: "Ordine online in preparazione",
     contactUnavailable: "Contatto WhatsApp in configurazione",
@@ -46,7 +47,8 @@ const copy = {
     promos: "News",
     social: "Social",
     reviews: "Reviews",
-    hours: "Hours",
+    hours: "When will you visit us?",
+    menuHint: "Choose a category to browse the products.",
     service: "Takeaway and delivery only",
     orderUnavailable: "Online ordering is being prepared",
     contactUnavailable: "WhatsApp contact is being configured",
@@ -141,13 +143,16 @@ function render(site, locale) {
 
   const menuTitle = document.querySelector("#menu-title");
   menuTitle.textContent = t.menu;
+  document.querySelector("#menu-hint").textContent = t.menuHint;
   const menu = document.querySelector("#menu-grid");
   menu.replaceChildren();
   for (const category of site.categories) {
-    const card = node("article", { className: "card" });
-    card.append(
-      node("h3", { text: localized(category.name, locale) }),
-    );
+    const card = node("details", { className: "card menu-category" });
+    const summary = node("summary", { className: "menu-category__toggle" });
+    summary.append(node("span", { text: localized(category.name, locale) }));
+    const count = site.menuItems.filter(item => item.categoryId === category.id).length;
+    summary.append(node("small", { text: String(count) }));
+    card.append(summary);
     const money = (cents) => new Intl.NumberFormat(
       locale === "en" ? "en-IE" : "it-IT",
       { style: "currency", currency: "EUR" }
