@@ -8,8 +8,8 @@ import {
 const copy = {
   it: {
     intro: "La fame ha trovato casa. Pizza, pollo allo spiedo e specialità di rosticceria: scegli quello che ti va, da asporto o con consegna a domicilio.",
-    menuEditorial: "Dalle pizze alle specialità palermitane, scopri le nostre proposte e scegli il formato che preferisci.",
-    categoryIntro: {pizzeria:"Dalle Classiche alle Speciali, fino a Ma che Bontà: trova la tua pizza.",polleria:"Il pollo allo spiedo e le proposte della polleria.",sfiziosita:"Qualcosa di sfizioso per completare il tuo ordine.","rosticceria-palermitana":"I sapori della tradizione palermitana, disponibili al banco.","rosticceria-mignon":"Piccole specialità da condividere, prenotabili a multipli di mezzo chilo.",dolci:"Un finale dolce? Scopri le proposte disponibili.",bevande:"Scegli cosa bere insieme al tuo ordine."},
+    menuEditorial: "Da Galline in Fuga trovi pizza, pollo allo spiedo, rosticceria palermitana e sfiziosità. Scegli quello che ti stuzzica e scopri le proposte disponibili.",
+    categoryIntro: {pizzeria:"Dalle Classiche alle Speciali, fino a Ma che Bontà: trova la tua pizza.",polleria:"La tradizione che gira a regola d’arte: scegli tra mezzo pollo e pollo intero allo spiedo.",sfiziosita:"Perché il contorno giusto non è mai soltanto un contorno: patatine, nuggets e altre sfiziosità.","rosticceria-palermitana":"I sapori della tradizione, quelli che a Palermo non hanno bisogno di presentazioni. Specialità disponibili al banco.","rosticceria-mignon":"Piccole bontà da condividere: la rosticceria in formato mignon, prenotabile a multipli di mezzo chilo.",dolci:"Perché anche il finale merita il suo momento di gloria: scopri il cannolo e la Nutellosa.",bevande:"Tutto quello che serve per accompagnare il tuo ordine."},
     menu: "Menù",
     menuBrowse: "Sfoglia il menù",
     menuPrice: "Prezzo",
