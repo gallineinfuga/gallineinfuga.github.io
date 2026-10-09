@@ -377,3 +377,23 @@ h3, h4 { line-height: 1.25; }
 /* Keyboard-accessible skip navigation */
 .skip-link{position:absolute;top:8px;left:8px;z-index:10000;transform:translateY(-160%);background:#fffdf7;color:#741010;padding:12px 16px;border:3px solid #741010;border-radius:8px;font-weight:800}
 .skip-link:focus{transform:translateY(0)}
+
+/* Site + QR HUB unified visual system, mobile first */
+.brand-identity{display:inline-flex;align-items:center;gap:13px;color:var(--brand-dark);text-decoration:none;font-size:clamp(1.2rem,3vw,1.9rem);font-weight:950;letter-spacing:-.035em}
+.brand-seal{display:grid;place-items:center;width:53px;height:53px;border-radius:50%;background:linear-gradient(135deg,#ffda79,#d89129);border:3px solid #9f181f;color:#a51924;box-shadow:0 4px 10px #52171526;font-size:1.65rem}
+.hero__content{max-width:960px}
+#brand-name{white-space:pre-line;max-width:19ch;font-size:clamp(2.65rem,7vw,5.2rem);line-height:1.05}
+#service-mode:empty,#descriptor:empty{display:none}
+.editorial-intro{max-width:66ch;line-height:1.62;font-size:clamp(1rem,2.1vw,1.17rem)}
+#primary-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch}
+#primary-actions .action{width:100%;min-height:138px;aspect-ratio:1/1;max-height:200px;display:flex;text-align:center;border-radius:22px;white-space:normal;line-height:1.45;padding:16px;font-size:clamp(.92rem,2vw,1.14rem)}
+#primary-actions .action--disabled{background:#f0e8dc;color:#6b5d55;border:1px dashed #b2a292;box-shadow:none}
+.hours-intro{font-weight:650;line-height:1.55;color:var(--brand-dark)}
+.sunday-floating{margin:18px 0 0;font-weight:850;font-style:italic;color:var(--brand)}
+.promo-reveal{border:2px solid #b0222d;min-height:92px;border-radius:20px;background:linear-gradient(115deg,#ffd67e,#fff0c3);color:#811620;font-weight:900;font-size:1.3rem;cursor:pointer;padding:16px 32px}
+.promo-reveal span:first-child{font-size:1.9rem;margin-right:12px}
+.promo-panel{padding-top:20px}
+.promo-pop{animation:hub-pop .42s cubic-bezier(.2,1.5,.3,1)}
+@keyframes hub-pop{0%{transform:scale(1)}45%{transform:scale(1.08)}100%{transform:scale(1)}}
+@media(max-width:630px){#primary-actions{gap:7px}#primary-actions .action{min-height:0;aspect-ratio:1/1;padding:9px 6px;border-radius:14px;font-size:clamp(.72rem,2.8vw,.98rem)}.brand-identity{gap:9px;font-size:1.15rem}.brand-seal{width:43px;height:43px;font-size:1.3rem}}
+@media(prefers-reduced-motion:reduce){.promo-pop{animation:none}}
