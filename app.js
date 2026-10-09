@@ -160,6 +160,12 @@ function render(site, locale) {
 
     function appendItems(target, items, showPrices) {
       const list = node("ul", { className: "menu-items" });
+      if (category.id === "pizzeria") {
+        list.classList.add("menu-items--pizza");
+        const header = node("li", { className: "pizza-price-header" });
+        header.append(node("span", { text: "" }), node("span", { text: t.regular }), node("span", { text: t.family }));
+        list.append(header);
+      }
       for (const item of items) {
         const row = node("li", { className: "menu-item" });
         const info = node("div", { className: "menu-item__info" });
@@ -171,6 +177,14 @@ function render(site, locale) {
           }));
         }
         row.append(info);
+        if (category.id === "pizzeria" && !showPrices) {
+          const group = site.menuGroups.find(group => group.id === item.priceGroup);
+          const regular = group?.prices.find(price => price.id === "normale");
+          const family = group?.prices.find(price => price.id === "familiare");
+          const single = group?.prices.find(price => price.id === "unico");
+          row.append(node("strong", { className: "price price--choice", text: regular ? money(regular.priceCents) : single ? money(single.priceCents) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: family ? money(family.priceCents) : "—" }));
+        }
         if (showPrices) {
           const formatted = item.priceChoicesCents
             ? item.priceChoicesCents.map(money).join(" / ")
@@ -189,12 +203,7 @@ function render(site, locale) {
       const section = node("div", { className: "menu-group" });
       section.append(
         node("h4", { text: localized(group.name, locale) }),
-        node("p", {
-          className: "menu-group__prices",
-          text: group.prices.map((price) =>
-            localized(price.label, locale) + " " + money(price.priceCents)
-          ).join(" · "),
-        }),
+        
       );
       appendItems(section, groupItems, false);
       card.append(section);
