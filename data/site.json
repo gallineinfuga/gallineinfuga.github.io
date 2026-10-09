@@ -339,8 +339,8 @@
       },
       "editorial": {
         "site": {
-          "it": "Mozzarella, gorgonzola, mozzarella di bufala e scaglie di grana: quattro formaggi, ciascuno riconoscibile.",
-          "en": "Mozzarella, gorgonzola, buffalo mozzarella and Grana shavings: four cheeses in one pizza."
+          "it": "Quattro formaggi diversi, dalla mozzarella al gorgonzola, con bufala e scaglie di grana.",
+          "en": "Four cheeses: mozzarella, gorgonzola, buffalo mozzarella and Grana shavings."
         },
         "hub": {
           "it": "Mozzarella, gorgonzola, mozzarella di bufala, scaglie di grana",
@@ -366,8 +366,8 @@
       },
       "editorial": {
         "site": {
-          "it": "Spinaci, salsiccia e mascarpone si aggiungono alla base di pomodoro e mozzarella.",
-          "en": "Spinach, sausage and mascarpone join the tomato and mozzarella base."
+          "it": "Una combinazione meno consueta: spinaci, salsiccia e mascarpone.",
+          "en": "An unusual combination of spinach, sausage and mascarpone."
         },
         "hub": {
           "it": "Pomodoro, mozzarella, spinaci, salsiccia, mascarpone",
@@ -501,8 +501,8 @@
       },
       "editorial": {
         "site": {
-          "it": "Pollo fritto e salsa barbecue sulla base di pomodoro e mozzarella: la pizza che porta il nome del locale.",
-          "en": "Fried chicken and barbecue sauce over tomato and mozzarella: the pizza named after our shop."
+          "it": "La pizza che porta il nostro nome: pollo fritto e salsa barbecue.",
+          "en": "Our namesake pizza, topped with fried chicken and barbecue sauce."
         },
         "hub": {
           "it": "Pomodoro, mozzarella, pollo fritto, salsa barbecue",
@@ -555,8 +555,8 @@
       },
       "editorial": {
         "site": {
-          "it": "Pomodoro in cottura, poi mozzarella e prosciutto crudo in uscita: qui conta anche il momento in cui si aggiungono gli ingredienti.",
-          "en": "Tomato goes into the oven; mozzarella and cured ham are added afterwards."
+          "it": "Una particolarità nella preparazione: mozzarella e prosciutto crudo vengono aggiunti in uscita.",
+          "en": "Mozzarella and cured ham are added after baking."
         },
         "hub": {
           "it": "Pomodoro in cottura, mozzarella in uscita, prosciutto crudo",
@@ -717,8 +717,8 @@
       },
       "editorial": {
         "site": {
-          "it": "Mortadella, burrata e pistacchio completano una base di mozzarella: gli ingredienti aggiunti in uscita ne definiscono la composizione.",
-          "en": "Mortadella, burrata and pistachio finish a mozzarella base; the toppings are added after baking."
+          "it": "Mortadella, burrata e crema di pistacchio vengono aggiunte in uscita, con la granella a completare la pizza.",
+          "en": "Mortadella, burrata and pistachio cream are added after baking, finished with chopped pistachios."
         },
         "hub": {
           "it": "Mozzarella in cottura, mortadella in uscita, burrata in uscita, crema di pistacchio in uscita, granella di pistacchio",
@@ -744,8 +744,8 @@
       "priceCents": 750,
       "editorial": {
         "site": {
-          "it": "Nutella, ricotta e granella di pistacchi: tre ingredienti per la nostra proposta dolce.",
-          "en": "Nutella, ricotta and chopped pistachios make up this sweet option."
+          "it": "Nutella e ricotta, con una nota di pistacchio in granella.",
+          "en": "Nutella and ricotta, finished with chopped pistachios."
         },
         "hub": {
           "it": "Nutella, ricotta, granella di pistacchi",
@@ -767,8 +767,8 @@
       "priceCents": 800,
       "editorial": {
         "site": {
-          "it": "Mezzo pollo allo spiedo, per chi vuole portare a casa una porzione della nostra polleria.",
-          "en": "Half a rotisserie chicken, ready to take away."
+          "it": "Il nostro pollo allo spiedo, in mezza porzione.",
+          "en": "Our rotisserie chicken, in a half portion."
         },
         "hub": {
           "it": "Mezzo pollo allo spiedo",
@@ -790,8 +790,8 @@
       "priceCents": 1600,
       "editorial": {
         "site": {
-          "it": "Il pollo allo spiedo nella versione intera, da portare a casa e condividere.",
-          "en": "A whole rotisserie chicken to take home and share."
+          "it": "Il pollo allo spiedo intero, per chi preferisce una porzione da condividere.",
+          "en": "A whole rotisserie chicken, ready to share."
         },
         "hub": {
           "it": "Pollo intero allo spiedo",
@@ -813,8 +813,8 @@
       "priceCents": 200,
       "editorial": {
         "site": {
-          "it": "Patatine fritte o al forno, porzione piccola.",
-          "en": "Chips or roast potatoes, small portion."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Patatine fritte o al forno · piccola",
@@ -836,8 +836,8 @@
       "priceCents": 350,
       "editorial": {
         "site": {
-          "it": "Patatine fritte o al forno, porzione media.",
-          "en": "Chips or roast potatoes, medium portion."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Patatine fritte o al forno · media",
@@ -859,8 +859,8 @@
       "priceCents": 500,
       "editorial": {
         "site": {
-          "it": "Patatine fritte o al forno, porzione grande.",
-          "en": "Chips or roast potatoes, large portion."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Patatine fritte o al forno · grande",
@@ -882,8 +882,8 @@
       "priceCents": 400,
       "editorial": {
         "site": {
-          "it": "Sei nuggets di pollo con salsa barbecue.",
-          "en": "Six chicken nuggets with barbecue sauce."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Chicken nuggets · 6 pezzi con salsa BBQ",
@@ -905,8 +905,8 @@
       "priceCents": 600,
       "editorial": {
         "site": {
-          "it": "Un antipasto misto siciliano. Per conoscere la composizione disponibile, chiedi al personale.",
-          "en": "A mixed Sicilian starter. Ask our staff about the current selection."
+          "it": "Una selezione mista che richiama la tradizione siciliana. Chiedi al personale quali specialità comprende.",
+          "en": "A mixed selection inspired by Sicilian savouries. Ask our staff what is included."
         },
         "hub": {
           "it": "Antipasto siciliano misto",
@@ -929,8 +929,8 @@
       "saleRule": "counter-only",
       "editorial": {
         "site": {
-          "it": "Le specialità della rosticceria palermitana si scelgono al banco. Disponibilità secondo l'assortimento del giorno.",
-          "en": "Traditional Palermo savouries are chosen at the counter; selection may vary."
+          "it": "Le specialità della tradizione palermitana si scelgono direttamente al banco.",
+          "en": "Traditional Palermo savouries are selected directly at the counter."
         },
         "hub": {
           "it": "Rosticceria palermitana · al pezzo",
@@ -953,8 +953,8 @@
       "unit": "kg",
       "editorial": {
         "site": {
-          "it": "La rosticceria in formato mignon si presta a buffet e tavolate. Si prenota al chilo, in multipli di mezzo chilo.",
-          "en": "Mini savouries for sharing. Pre-order by weight, in 0.5 kg increments."
+          "it": "Il formato mignon è pensato anche per buffet e occasioni da condividere.",
+          "en": "Mini savouries are also suited to buffets and gatherings."
         },
         "hub": {
           "it": "Rosticceria mignon classica",
@@ -976,8 +976,8 @@
       "priceCents": 200,
       "editorial": {
         "site": {
-          "it": "Il cannolo con ricotta, uno dei dolci più riconoscibili della tradizione siciliana.",
-          "en": "Ricotta cannolo, a familiar Sicilian dessert."
+          "it": "Un classico della pasticceria siciliana, con ripieno di ricotta.",
+          "en": "A Sicilian pastry classic with ricotta filling."
         },
         "hub": {
           "it": "Cannolo con ricotta",
@@ -999,8 +999,8 @@
       "priceCents": 120,
       "editorial": {
         "site": {
-          "it": "Acqua da 50 cl.",
-          "en": "50 cl water."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Acqua · 50 cl",
@@ -1022,8 +1022,8 @@
       "priceCents": 200,
       "editorial": {
         "site": {
-          "it": "Bibite in lattina da 33 cl.",
-          "en": "33 cl canned soft drinks."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Bibite in lattina · 33 cl",
@@ -1048,8 +1048,8 @@
       ],
       "editorial": {
         "site": {
-          "it": "Birre assortite da 33 cl; il prezzo dipende dalla scelta.",
-          "en": "Assorted 33 cl beers; price varies by selection."
+          "it": "",
+          "en": ""
         },
         "hub": {
           "it": "Birre assortite · 33 cl",
