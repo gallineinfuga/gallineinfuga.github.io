@@ -1,25 +1,81 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fff5e8">
-<meta name="description" content="Galline in Fuga — hub digitale ufficiale.">
-<title>Galline in Fuga</title>
-<link rel="stylesheet" href="assets/css/app.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#a81818">
+  <meta name="description" content="Galline in Fuga — menu, ordini, contatti e novità.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'; worker-src 'self'">
+  <link rel="canonical" href="https://gallineinfuga.github.io/">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Galline in Fuga</title>
 </head>
 <body>
-<main class="hub" id="app" aria-live="polite">
-<header class="hero">
-<div class="brand-mark" aria-hidden="true">GIF</div>
-<p class="eyebrow">HUB DIGITALE UFFICIALE</p>
-<h1>Galline in Fuga</h1>
-<p class="subtitle">Pizzeria · Polleria · Rosticceria</p>
-</header>
-<section id="links" class="links" aria-label="Collegamenti"></section>
-<p id="empty" class="empty" hidden>I collegamenti saranno disponibili a breve.</p>
-<footer>Galline in Fuga · Palermo</footer>
-</main>
-<script type="module" src="assets/js/app.js"></script>
+  <header class="hero">
+    <nav class="topbar" aria-label="Language selector">
+      <div class="brand-mark" aria-hidden="true">GIF</div>
+      <div class="languages">
+        <button type="button" data-locale="it" aria-label="Italiano">IT</button>
+        <button type="button" data-locale="en" aria-label="English">EN</button>
+      </div>
+    </nav>
+
+    <div class="hero__content">
+      <p class="eyebrow" id="descriptor"></p>
+      <h1 id="brand-name">Galline in Fuga</h1>
+      <p id="service-mode"></p>
+      <div id="primary-actions" class="actions"></div>
+      <p id="app-status" class="status" hidden></p>
+    </div>
+  </header>
+
+  <main>
+    <section id="menu" class="section" aria-labelledby="menu-title">
+      <h2 id="menu-title"></h2>
+      <div id="menu-grid" class="grid"></div>
+      <p id="menu-additions" class="meta menu-notice"></p>
+      <p id="menu-allergies" class="meta menu-notice"></p>
+    </section>
+
+    <section class="section section--panel" aria-labelledby="hours-title">
+      <h2 id="hours-title"></h2>
+      <ul id="hours-list" class="hours"></ul>
+    </section>
+
+    <section class="section" aria-labelledby="promos-title">
+      <h2 id="promos-title"></h2>
+      <p id="promos-empty" class="empty"></p>
+    </section>
+
+    <section class="section" aria-labelledby="social-title">
+      <h2 id="social-title"></h2>
+      <p id="social-empty" class="empty"></p>
+    </section>
+
+    <section class="section section--panel" aria-labelledby="reviews-title">
+      <h2 id="reviews-title"></h2>
+      <div id="review-slot" class="actions"></div>
+    </section>
+
+    <noscript>
+      <p class="noscript">Per usare tutte le funzioni dell’HUB è necessario JavaScript. Gli orari principali restano: lunedì–sabato 16:00–23:00, domenica chiuso.</p>
+    </noscript>
+  </main>
+
+  <footer>
+    <span>Galline in Fuga</span>
+    <nav class="legal-links" aria-label="Informazioni">
+      <a href="./privacy.html">Privacy</a>
+      <a href="./chi-siamo.html">Chi siamo</a>
+      <a href="./contatti.html">Contatti</a>
+      <a href="./lavora-con-noi.html">Lavora con noi</a>
+    </nav>
+    <span>Privacy-first · no tracking</span>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
 </body>
 </html>

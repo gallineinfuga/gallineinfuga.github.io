@@ -1,0 +1,651 @@
+{
+  "schemaVersion": "0.1.0",
+  "brand": {
+    "name": "Galline in Fuga",
+    "descriptor": {
+      "it": "Pizzeria · Polleria · Rosticceria",
+      "en": "Pizza · Rotisserie Chicken · Sicilian Street Food"
+    }
+  },
+  "serviceModes": [
+    "takeaway",
+    "delivery"
+  ],
+  "hours": {
+    "monday": "16:00–23:00",
+    "tuesday": "16:00–23:00",
+    "wednesday": "16:00–23:00",
+    "thursday": "16:00–23:00",
+    "friday": "16:00–23:00",
+    "saturday": "16:00–23:00",
+    "sunday": "closed"
+  },
+  "categories": [
+    {
+      "id": "pizzeria",
+      "name": {
+        "it": "Pizzeria",
+        "en": "Pizza"
+      },
+      "onlineOrderable": true
+    },
+    {
+      "id": "polleria",
+      "name": {
+        "it": "Polleria",
+        "en": "Rotisserie Chicken"
+      },
+      "onlineOrderable": true
+    },
+    {
+      "id": "sfiziosita",
+      "name": {
+        "it": "Sfiziosità",
+        "en": "Snacks"
+      },
+      "onlineOrderable": true
+    },
+    {
+      "id": "rosticceria-palermitana",
+      "name": {
+        "it": "Rosticceria palermitana",
+        "en": "Palermo Street Food"
+      },
+      "onlineOrderable": false,
+      "saleRule": "counter-only"
+    },
+    {
+      "id": "rosticceria-mignon",
+      "name": {
+        "it": "Rosticceria mignon",
+        "en": "Mignon Savouries"
+      },
+      "onlineOrderable": true,
+      "soldByWeight": true,
+      "weightIncrementKg": 0.5
+    },
+    {
+      "id": "dolci",
+      "name": {
+        "it": "Dolci",
+        "en": "Desserts"
+      },
+      "onlineOrderable": true
+    },
+    {
+      "id": "bevande",
+      "name": {
+        "it": "Bevande",
+        "en": "Drinks"
+      },
+      "onlineOrderable": true
+    }
+  ],
+  "menuItems": [
+    {
+      "id": "margherita",
+      "categoryId": "pizzeria",
+      "priceGroup": "classiche",
+      "name": {
+        "it": "MARGHERITA",
+        "en": "MARGHERITA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella",
+        "en": "Tomato, mozzarella"
+      }
+    },
+    {
+      "id": "napoli",
+      "categoryId": "pizzeria",
+      "priceGroup": "classiche",
+      "name": {
+        "it": "NAPOLI",
+        "en": "NAPOLI"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, acciughe",
+        "en": "Tomato, mozzarella, anchovies"
+      }
+    },
+    {
+      "id": "marinara",
+      "categoryId": "pizzeria",
+      "priceGroup": "classiche",
+      "name": {
+        "it": "MARINARA",
+        "en": "MARINARA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, olio d'aglio, sale, pepe, origano",
+        "en": "Tomato, garlic oil, salt, pepper, oregano"
+      }
+    },
+    {
+      "id": "romana",
+      "categoryId": "pizzeria",
+      "priceGroup": "classiche",
+      "name": {
+        "it": "ROMANA",
+        "en": "ROMANA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, prosciutto cotto",
+        "en": "Tomato, mozzarella, cooked ham"
+      }
+    },
+    {
+      "id": "siciliana",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "SICILIANA",
+        "en": "SICILIANA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, acciughe, cipolla, olive",
+        "en": "Tomato, mozzarella, anchovies, onion, olives"
+      }
+    },
+    {
+      "id": "vegetariana",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "VEGETARIANA",
+        "en": "VEGETARIANA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, spinaci, funghi champignon, melanzane, carciofi",
+        "en": "Tomato, mozzarella, spinach, button mushrooms, aubergine, artichokes"
+      }
+    },
+    {
+      "id": "parmigiana",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "PARMIGIANA",
+        "en": "PARMIGIANA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, melanzane, scaglie di grana",
+        "en": "Tomato, mozzarella, aubergine, Grana cheese shavings"
+      }
+    },
+    {
+      "id": "light",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "LIGHT",
+        "en": "LIGHT"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, rucola, scaglie di grana, pomodorini",
+        "en": "Tomato, mozzarella, rocket, Grana cheese shavings, cherry tomatoes"
+      }
+    },
+    {
+      "id": "bufalina",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "BUFALINA",
+        "en": "BUFALINA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella di bufala, pomodorini",
+        "en": "Tomato, buffalo mozzarella, cherry tomatoes"
+      }
+    },
+    {
+      "id": "quattro-formaggi",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "QUATTRO FORMAGGI",
+        "en": "QUATTRO FORMAGGI"
+      },
+      "ingredients": {
+        "it": "Mozzarella, gorgonzola, mozzarella di bufala, scaglie di grana",
+        "en": "Mozzarella, gorgonzola, buffalo mozzarella, Grana cheese shavings"
+      }
+    },
+    {
+      "id": "braccio-di-ferro",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "BRACCIO DI FERRO",
+        "en": "BRACCIO DI FERRO"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, spinaci, salsiccia, mascarpone",
+        "en": "Tomato, mozzarella, spinach, sausage, mascarpone"
+      }
+    },
+    {
+      "id": "deliziosa",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "DELIZIOSA",
+        "en": "DELIZIOSA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, salsiccia, funghi champignon, melanzane",
+        "en": "Tomato, mozzarella, sausage, button mushrooms, aubergine"
+      }
+    },
+    {
+      "id": "tonno",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "TONNO",
+        "en": "TONNO"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, cipolla, tonno",
+        "en": "Tomato, mozzarella, onion, tuna"
+      }
+    },
+    {
+      "id": "rustica",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "RUSTICA",
+        "en": "RUSTICA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, cipolla, pancetta",
+        "en": "Tomato, mozzarella, onion, pancetta"
+      }
+    },
+    {
+      "id": "baby",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "BABY",
+        "en": "BABY"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, wurstel, patatine fritte",
+        "en": "Tomato, mozzarella, frankfurter, chips"
+      }
+    },
+    {
+      "id": "galline-in-fuga",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "GALLINE IN FUGA",
+        "en": "GALLINE IN FUGA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, pollo fritto, salsa barbecue",
+        "en": "Tomato, mozzarella, fried chicken, barbecue sauce"
+      }
+    },
+    {
+      "id": "daniel",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "DANIEL",
+        "en": "DANIEL"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, rucola, prosciutto crudo, scaglie di grana",
+        "en": "Tomato, mozzarella, rocket, cured ham, Grana cheese shavings"
+      }
+    },
+    {
+      "id": "fresca",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "FRESCA",
+        "en": "FRESCA"
+      },
+      "ingredients": {
+        "it": "Pomodoro in cottura, mozzarella in uscita, prosciutto crudo",
+        "en": "Tomato baked on pizza, mozzarella added after baking, cured ham"
+      }
+    },
+    {
+      "id": "diavola",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "DIAVOLA",
+        "en": "DIAVOLA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, cipolla, salame piccante",
+        "en": "Tomato, mozzarella, onion, spicy salami"
+      }
+    },
+    {
+      "id": "san-francesco",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "SAN FRANCESCO",
+        "en": "SAN FRANCESCO"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, prosciutto cotto, salame piccante, funghi champignon, olive",
+        "en": "Tomato, mozzarella, cooked ham, spicy salami, button mushrooms, olives"
+      }
+    },
+    {
+      "id": "la-migliore",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "LA MIGLIORE",
+        "en": "LA MIGLIORE"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, prosciutto cotto, funghi champignon",
+        "en": "Tomato, mozzarella, cooked ham, button mushrooms"
+      }
+    },
+    {
+      "id": "capricciosa",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "CAPRICCIOSA",
+        "en": "CAPRICCIOSA"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, prosciutto cotto, funghi champignon, carciofi, wurstel, olive",
+        "en": "Tomato, mozzarella, cooked ham, button mushrooms, artichokes, frankfurter, olives"
+      }
+    },
+    {
+      "id": "calzone-classico",
+      "categoryId": "pizzeria",
+      "priceGroup": "special",
+      "name": {
+        "it": "CALZONE CLASSICO",
+        "en": "CALZONE CLASSICO"
+      },
+      "ingredients": {
+        "it": "Pomodoro, mozzarella, prosciutto cotto",
+        "en": "Tomato, mozzarella, cooked ham"
+      }
+    },
+    {
+      "id": "pistacchiosa",
+      "categoryId": "pizzeria",
+      "priceGroup": "ma-che-bonta",
+      "name": {
+        "it": "PISTACCHIOSA",
+        "en": "PISTACCHIOSA"
+      },
+      "ingredients": {
+        "it": "Mozzarella in cottura, mortadella in uscita, burrata in uscita, crema di pistacchio in uscita, granella di pistacchio",
+        "en": "Baked mozzarella, mortadella, burrata, pistachio cream and chopped pistachios added after baking"
+      }
+    },
+    {
+      "id": "nutellosa",
+      "categoryId": "pizzeria",
+      "priceGroup": "pizze-dolci",
+      "name": {
+        "it": "NUTELLOSA",
+        "en": "NUTELLOSA"
+      },
+      "ingredients": {
+        "it": "Nutella, ricotta, granella di pistacchi",
+        "en": "Nutella, ricotta, chopped pistachios"
+      }
+    },
+    {
+      "id": "mezzo-pollo",
+      "categoryId": "polleria",
+      "name": {
+        "it": "Mezzo pollo allo spiedo",
+        "en": "Half rotisserie chicken"
+      },
+      "priceCents": 800
+    },
+    {
+      "id": "pollo-intero",
+      "categoryId": "polleria",
+      "name": {
+        "it": "Pollo intero allo spiedo",
+        "en": "Whole rotisserie chicken"
+      },
+      "priceCents": 1600
+    },
+    {
+      "id": "patatine-piccole",
+      "categoryId": "sfiziosita",
+      "name": {
+        "it": "Patatine fritte o al forno · piccola",
+        "en": "Chips or roast potatoes · small"
+      },
+      "priceCents": 200
+    },
+    {
+      "id": "patatine-medie",
+      "categoryId": "sfiziosita",
+      "name": {
+        "it": "Patatine fritte o al forno · media",
+        "en": "Chips or roast potatoes · medium"
+      },
+      "priceCents": 350
+    },
+    {
+      "id": "patatine-grandi",
+      "categoryId": "sfiziosita",
+      "name": {
+        "it": "Patatine fritte o al forno · grande",
+        "en": "Chips or roast potatoes · large"
+      },
+      "priceCents": 500
+    },
+    {
+      "id": "chicken-nuggets",
+      "categoryId": "sfiziosita",
+      "name": {
+        "it": "Chicken nuggets · 6 pezzi con salsa BBQ",
+        "en": "Chicken nuggets · 6 pieces with BBQ sauce"
+      },
+      "priceCents": 400
+    },
+    {
+      "id": "antipasto-siciliano",
+      "categoryId": "sfiziosita",
+      "name": {
+        "it": "Antipasto siciliano misto",
+        "en": "Mixed Sicilian fried appetisers"
+      },
+      "priceCents": 600
+    },
+    {
+      "id": "rosticceria-palermitana-pezzo",
+      "categoryId": "rosticceria-palermitana",
+      "name": {
+        "it": "Rosticceria palermitana · al pezzo",
+        "en": "Palermo street food · per piece"
+      },
+      "priceCents": 200,
+      "saleRule": "counter-only"
+    },
+    {
+      "id": "rosticceria-mignon-classica",
+      "categoryId": "rosticceria-mignon",
+      "name": {
+        "it": "Rosticceria mignon classica",
+        "en": "Assorted mini savouries"
+      },
+      "priceCents": 1200,
+      "unit": "kg"
+    },
+    {
+      "id": "cannolo-ricotta",
+      "categoryId": "dolci",
+      "name": {
+        "it": "Cannolo con ricotta",
+        "en": "Ricotta cannolo"
+      },
+      "priceCents": 200
+    },
+    {
+      "id": "acqua",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Acqua · 50 cl",
+        "en": "Water · 50 cl"
+      },
+      "priceCents": 120
+    },
+    {
+      "id": "lattine",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Bibite in lattina · 33 cl",
+        "en": "Canned soft drinks · 33 cl"
+      },
+      "priceCents": 200
+    },
+    {
+      "id": "birre-assortite",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Birre assortite · 33 cl",
+        "en": "Assorted beers · 33 cl"
+      },
+      "priceChoicesCents": [
+        250,
+        300
+      ]
+    }
+  ],
+  "capabilities": {
+    "onlineOrdering": {
+      "enabled": false,
+      "href": ""
+    },
+    "whatsapp": {
+      "enabled": false,
+      "href": ""
+    },
+    "reviews": {
+      "enabled": false,
+      "href": ""
+    }
+  },
+  "social": [],
+  "promotions": [],
+  "menuGroups": [
+    {
+      "id": "classiche",
+      "categoryId": "pizzeria",
+      "name": {
+        "it": "Classiche",
+        "en": "Classics"
+      },
+      "prices": [
+        {
+          "id": "normale",
+          "label": {
+            "it": "Normale",
+            "en": "Regular"
+          },
+          "priceCents": 600
+        },
+        {
+          "id": "familiare",
+          "label": {
+            "it": "Familiare",
+            "en": "Family"
+          },
+          "priceCents": 1200
+        }
+      ]
+    },
+    {
+      "id": "special",
+      "categoryId": "pizzeria",
+      "name": {
+        "it": "Special",
+        "en": "Specials"
+      },
+      "prices": [
+        {
+          "id": "normale",
+          "label": {
+            "it": "Normale",
+            "en": "Regular"
+          },
+          "priceCents": 750
+        },
+        {
+          "id": "familiare",
+          "label": {
+            "it": "Familiare",
+            "en": "Family"
+          },
+          "priceCents": 1500
+        }
+      ]
+    },
+    {
+      "id": "ma-che-bonta",
+      "categoryId": "pizzeria",
+      "name": {
+        "it": "Ma che bontà",
+        "en": "Our Special Pick"
+      },
+      "prices": [
+        {
+          "id": "normale",
+          "label": {
+            "it": "Normale",
+            "en": "Regular"
+          },
+          "priceCents": 1000
+        },
+        {
+          "id": "familiare",
+          "label": {
+            "it": "Familiare",
+            "en": "Family"
+          },
+          "priceCents": 2000
+        }
+      ]
+    },
+    {
+      "id": "pizze-dolci",
+      "categoryId": "pizzeria",
+      "name": {
+        "it": "Pizze dolci",
+        "en": "Dessert Pizzas"
+      },
+      "prices": [
+        {
+          "id": "unico",
+          "label": {
+            "it": "Formato unico",
+            "en": "One size"
+          },
+          "priceCents": 750
+        }
+      ]
+    }
+  ],
+  "pizzaAdditions": {
+    "regularCents": 150,
+    "familyCents": 300
+  }
+}

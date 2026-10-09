@@ -1,0 +1,305 @@
+import {
+  DAY_ORDER,
+  localized,
+  normalizeLocale,
+  validateSiteData,
+} from "./domain.js";
+
+const copy = {
+  it: {
+    menu: "Menù",
+    menuBrowse: "Sfoglia il menù",
+    menuPrice: "Prezzo",
+    addedPizzaExtras: "Aggiunte pizza",
+    regular: "normale",
+    family: "familiare",
+    allergy: "Per intolleranze o allergie chiedi al nostro staff. La lista non sostituisce le informazioni sugli allergeni.",
+    menuPending: "Prodotti e prezzi in aggiornamento",
+    order: "Ordina online",
+    contact: "Contatti",
+    promos: "Novità",
+    social: "Social",
+    reviews: "Recensioni",
+    hours: "Orari",
+    service: "Solo asporto e consegna a domicilio",
+    orderUnavailable: "Ordine online in preparazione",
+    contactUnavailable: "Contatto WhatsApp in configurazione",
+    reviewsUnavailable: "Link recensioni in configurazione",
+    counterOnly: "Disponibile al banco",
+    weight: "Prenotabile a multipli di 0,5 kg",
+    noPromos: "Le nuove promo compariranno qui.",
+    noSocial: "I collegamenti social saranno pubblicati qui.",
+    openLabel: "Aperto",
+    closed: "Chiuso",
+  },
+  en: {
+    menu: "Menu",
+    menuBrowse: "Browse the menu",
+    menuPrice: "Price",
+    addedPizzaExtras: "Pizza extras",
+    regular: "regular",
+    family: "family",
+    allergy: "For intolerances or allergies, ask our staff. This menu is not an allergen chart.",
+    menuPending: "Products and prices being updated",
+    order: "Order online",
+    contact: "Contact",
+    promos: "News",
+    social: "Social",
+    reviews: "Reviews",
+    hours: "Hours",
+    service: "Takeaway and delivery only",
+    orderUnavailable: "Online ordering is being prepared",
+    contactUnavailable: "WhatsApp contact is being configured",
+    reviewsUnavailable: "Review link is being configured",
+    counterOnly: "Available at the counter",
+    weight: "Pre-order in 0.5 kg increments",
+    noPromos: "New promotions will appear here.",
+    noSocial: "Social links will be published here.",
+    openLabel: "Open",
+    closed: "Closed",
+  },
+};
+
+const dayLabels = {
+  it: {
+    monday: "Lunedì",
+    tuesday: "Martedì",
+    wednesday: "Mercoledì",
+    thursday: "Giovedì",
+    friday: "Venerdì",
+    saturday: "Sabato",
+    sunday: "Domenica",
+  },
+  en: {
+    monday: "Monday",
+    tuesday: "Tuesday",
+    wednesday: "Wednesday",
+    thursday: "Thursday",
+    friday: "Friday",
+    saturday: "Saturday",
+    sunday: "Sunday",
+  },
+};
+
+function node(tag, options = {}) {
+  const element = document.createElement(tag);
+  if (options.className) element.className = options.className;
+  if (options.text !== undefined) element.textContent = options.text;
+  if (options.href) element.href = options.href;
+  if (options.id) element.id = options.id;
+  return element;
+}
+
+function capabilityLink(capability, label, fallback) {
+  if (capability?.enabled === true && capability.href) {
+    const link = node("a", {
+      className: "action",
+      text: label,
+      href: capability.href,
+    });
+    link.rel = "noopener noreferrer";
+    return link;
+  }
+
+  const disabled = node("span", {
+    className: "action action--disabled",
+    text: fallback,
+  });
+  disabled.setAttribute("aria-disabled", "true");
+  return disabled;
+}
+
+function render(site, locale) {
+  const t = copy[locale];
+  document.documentElement.lang = locale;
+  document.title = site.brand.name;
+
+  document.querySelector("#brand-name").textContent = site.brand.name;
+  document.querySelector("#descriptor").textContent =
+    localized(site.brand.descriptor, locale);
+  document.querySelector("#service-mode").textContent = t.service;
+
+  const actions = document.querySelector("#primary-actions");
+  const menuAnchor = node("a", {
+    className: "action action--menu",
+    text: t.menuBrowse,
+    href: "#menu",
+  });
+  actions.replaceChildren(
+    menuAnchor,
+    capabilityLink(
+      site.capabilities.onlineOrdering,
+      t.order,
+      t.orderUnavailable,
+    ),
+    capabilityLink(
+      site.capabilities.whatsapp,
+      t.contact,
+      t.contactUnavailable,
+    ),
+  );
+
+  const menuTitle = document.querySelector("#menu-title");
+  menuTitle.textContent = t.menu;
+  const menu = document.querySelector("#menu-grid");
+  menu.replaceChildren();
+  for (const category of site.categories) {
+    const card = node("article", { className: "card" });
+    card.append(
+      node("h3", { text: localized(category.name, locale) }),
+    );
+    const money = (cents) => new Intl.NumberFormat(
+      locale === "en" ? "en-IE" : "it-IT",
+      { style: "currency", currency: "EUR" }
+    ).format(cents / 100);
+
+    function appendItems(target, items, showPrices) {
+      const list = node("ul", { className: "menu-items" });
+      for (const item of items) {
+        const row = node("li", { className: "menu-item" });
+        const info = node("div", { className: "menu-item__info" });
+        info.append(node("span", { className: "menu-item__name", text: localized(item.name, locale) }));
+        if (item.ingredients) {
+          info.append(node("span", {
+            className: "menu-item__ingredients",
+            text: localized(item.ingredients, locale),
+          }));
+        }
+        row.append(info);
+        if (showPrices) {
+          const formatted = item.priceChoicesCents
+            ? item.priceChoicesCents.map(money).join(" / ")
+            : money(item.priceCents) + (item.unit === "kg" ? "/kg" : "");
+          row.append(node("strong", { className: "price", text: formatted }));
+        }
+        list.append(row);
+      }
+      target.append(list);
+    }
+
+    const groups = site.menuGroups.filter((group) => group.categoryId === category.id);
+    for (const group of groups) {
+      const groupItems = site.menuItems.filter((item) => item.priceGroup === group.id);
+      if (groupItems.length === 0) continue;
+      const section = node("div", { className: "menu-group" });
+      section.append(
+        node("h4", { text: localized(group.name, locale) }),
+        node("p", {
+          className: "menu-group__prices",
+          text: group.prices.map((price) =>
+            localized(price.label, locale) + " " + money(price.priceCents)
+          ).join(" · "),
+        }),
+      );
+      appendItems(section, groupItems, false);
+      card.append(section);
+    }
+    const ungrouped = site.menuItems.filter((item) =>
+      item.categoryId === category.id && !item.priceGroup
+    );
+    if (ungrouped.length > 0) {
+      appendItems(card, ungrouped, true);
+    } else if (groups.length === 0) {
+      card.append(node("p", { className: "meta", text: t.menuPending }));
+    }
+    if (category.saleRule === "counter-only") {
+      card.append(node("p", { className: "meta", text: t.counterOnly }));
+    } else if (
+      category.soldByWeight &&
+      category.weightIncrementKg === 0.5
+    ) {
+      card.append(node("p", { className: "meta", text: t.weight }));
+    }
+    menu.append(card);
+  }
+
+  const extras = site.pizzaAdditions;
+  const eur = (cents) => new Intl.NumberFormat(
+    locale === "en" ? "en-IE" : "it-IT",
+    { style: "currency", currency: "EUR" }
+  ).format(cents / 100);
+  document.querySelector("#menu-additions").textContent =
+    `${t.addedPizzaExtras}: ${t.regular} +${eur(extras.regularCents)} · ${t.family} +${eur(extras.familyCents)}`;
+  document.querySelector("#menu-allergies").textContent = t.allergy;
+
+  document.querySelector("#hours-title").textContent = t.hours;
+  const hours = document.querySelector("#hours-list");
+  hours.replaceChildren();
+  for (const day of DAY_ORDER) {
+    const row = node("li", { className: "hours-row" });
+    row.append(
+      node("span", { text: dayLabels[locale][day] }),
+      node("strong", {
+        text:
+          site.hours[day] === "closed"
+            ? t.closed
+            : site.hours[day],
+      }),
+    );
+    hours.append(row);
+  }
+
+  document.querySelector("#promos-title").textContent = t.promos;
+  document.querySelector("#promos-empty").textContent =
+    site.promotions.length === 0 ? t.noPromos : "";
+
+  document.querySelector("#social-title").textContent = t.social;
+  document.querySelector("#social-empty").textContent =
+    site.social.length === 0 ? t.noSocial : "";
+
+  document.querySelector("#reviews-title").textContent = t.reviews;
+  const reviewSlot = document.querySelector("#review-slot");
+  reviewSlot.replaceChildren(
+    capabilityLink(
+      site.capabilities.reviews,
+      t.reviews,
+      t.reviewsUnavailable,
+    ),
+  );
+
+  document.querySelectorAll("[data-locale]").forEach((button) => {
+    button.setAttribute(
+      "aria-pressed",
+      String(button.dataset.locale === locale),
+    );
+  });
+}
+
+async function main() {
+  const response = await fetch("./data/site.json", { cache: "no-store" });
+  if (!response.ok) throw new Error("Unable to load site configuration");
+
+  const site = await response.json();
+  const errors = validateSiteData(site);
+  if (errors.length > 0) {
+    throw new Error(`Invalid site configuration: ${errors.join("; ")}`);
+  }
+
+  let locale = normalizeLocale(
+    new URLSearchParams(location.search).get("lang") ??
+      navigator.language?.slice(0, 2),
+  );
+
+  document.querySelectorAll("[data-locale]").forEach((button) => {
+    button.addEventListener("click", () => {
+      locale = normalizeLocale(button.dataset.locale);
+      render(site, locale);
+    });
+  });
+
+  render(site, locale);
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+  }
+}
+
+main().catch((error) => {
+  console.error(error);
+  const status = document.querySelector("#app-status");
+  status.hidden = false;
+  status.textContent =
+    "Configurazione temporaneamente non disponibile.";
+});

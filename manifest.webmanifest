@@ -1,0 +1,10 @@
+{
+  "name": "Galline in Fuga",
+  "short_name": "Galline",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff6df",
+  "theme_color": "#a81818",
+  "lang": "it",
+  "description": "Galline in Fuga — menu, ordini, contatti e novità."
+}
