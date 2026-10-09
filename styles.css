@@ -287,3 +287,11 @@ footer {
 .menu-category__toggle:focus-visible,.brand-mark:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
 .brand-mark{text-decoration:none}
 @media(max-width:480px){.menu-category__toggle{padding:16px}.menu-category> :not(summary){margin-left:14px;margin-right:14px}.menu-item{flex-wrap:wrap}}
+
+/* Individual pizza prices, aligned in two columns on every row */
+.menu-items--pizza .menu-item,.pizza-price-header{display:grid;grid-template-columns:minmax(0,1fr) minmax(65px,80px) minmax(65px,80px);align-items:start;gap:8px}
+.menu-items--pizza .menu-item{padding:12px 0}
+.pizza-price-header{font-size:.73rem;font-weight:800;text-transform:uppercase;color:var(--brand-dark);border-bottom:2px solid var(--line);padding-bottom:8px}
+.pizza-price-header span:not(:first-child),.menu-items--pizza .price--choice{text-align:right}
+.menu-items--pizza .price--choice{font-size:.9rem;white-space:nowrap}
+@media(max-width:420px){.menu-items--pizza .menu-item,.pizza-price-header{grid-template-columns:minmax(0,1fr) 65px 65px;gap:5px}.menu-items--pizza .price--choice{font-size:.82rem}.pizza-price-header{font-size:.68rem}}
