@@ -1137,8 +1137,8 @@
       "href": ""
     },
     "whatsapp": {
-      "enabled": false,
-      "href": ""
+      "enabled": true,
+      "href": "https://wa.me/393337309933"
     },
     "reviews": {
       "enabled": false,
