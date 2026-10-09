@@ -551,7 +551,7 @@
       "id": "classiche",
       "categoryId": "pizzeria",
       "name": {
-        "it": "Classiche",
+        "it": "Le Classiche",
         "en": "Classics"
       },
       "prices": [
@@ -577,7 +577,7 @@
       "id": "special",
       "categoryId": "pizzeria",
       "name": {
-        "it": "Special",
+        "it": "Le Speciali",
         "en": "Specials"
       },
       "prices": [
@@ -603,7 +603,7 @@
       "id": "ma-che-bonta",
       "categoryId": "pizzeria",
       "name": {
-        "it": "Ma che bontà",
+        "it": "Ma che Bontà...",
         "en": "Our Special Pick"
       },
       "prices": [
