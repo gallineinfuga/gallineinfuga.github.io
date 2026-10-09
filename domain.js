@@ -123,8 +123,9 @@ export function validateSiteData(site) {
     }
   }
 
-  // Menu Master: pizza group prices are displayed ONCE per group, not
-  // repeated for each pizza. All public data is display-only, never an order.
+  // Menu Master: pizza group prices are the canonical source for each pizza row.
+  // The interface displays regular and family prices on every row.
+  // Public catalogue data is display-only and never constitutes an order.
   const nameValid = (value) => value &&
     typeof value.it === "string" && value.it.trim() &&
     typeof value.en === "string" && value.en.trim();
