@@ -26,7 +26,7 @@ const copy = {
     social: "Social",
     reviews: "Recensioni",
     hours: "Quando passi a trovarci?",
-    menuHint: "Scegli una categoria per scoprire i prodotti.",
+    menuHint: "Scegli una categoria. Le pizze sono proposte nei formati normale e familiare.",
     service: "Solo asporto e consegna a domicilio",
     orderUnavailable: "Ordine online in preparazione",
     contactUnavailable: "Contatto WhatsApp in configurazione",
@@ -58,7 +58,7 @@ const copy = {
     social: "Social",
     reviews: "Reviews",
     hours: "When will you visit us?",
-    menuHint: "Choose a category to browse the products.",
+    menuHint: "Choose a category. Pizzas come in regular and family sizes.",
     service: "Takeaway and delivery only",
     orderUnavailable: "Online ordering is being prepared",
     contactUnavailable: "WhatsApp contact is being configured",
@@ -196,7 +196,8 @@ function render(site, locale) {
             text: localized(item.ingredients, locale),
           }));
         }
-        if (editorialMode && item.editorial?.site) info.append(node("span", { className: "menu-item__story", text: localized(item.editorial.site, locale) }));
+        const story = item.editorial?.site && localized(item.editorial.site, locale);
+        if (editorialMode && story) info.append(node("span", { className: "menu-item__story", text: story }));
         row.append(info);
         if (category.id === "pizzeria" && !showPrices) {
           const group = site.menuGroups.find(group => group.id === item.priceGroup);
