@@ -17,7 +17,7 @@
   <header class="hero">
     <a class="skip-link" href="#menu">Vai al menù</a>
     <nav class="topbar" aria-label="Selezione lingua">
-      <a class="brand-mark" href="./" aria-label="Galline in Fuga — Home">GIF</a>
+      <a class="brand-identity" href="./" aria-label="Galline in Fuga — torna alla pagina iniziale"><span class="brand-seal" aria-hidden="true">G</span><span class="brand-title">Galline in Fuga</span></a>
       <div class="languages">
         <button type="button" data-locale="it" aria-label="Italiano">IT</button>
         <button type="button" data-locale="en" aria-label="English">EN</button>
@@ -26,7 +26,7 @@
 
     <div class="hero__content">
       <p class="eyebrow" id="descriptor"></p>
-      <h1 id="brand-name">Galline in Fuga</h1>
+      <h1 id="brand-name">Fame?<br>Sei nel posto giusto...</h1>
       <p id="service-mode"></p>
       <p id="editorial-intro" class="editorial-intro"></p>
       <div id="primary-actions" class="actions"></div>
@@ -47,15 +47,15 @@
 
     <section class="section section--panel" aria-labelledby="hours-title">
       <h2 id="hours-title"></h2>
-      <ul id="hours-list" class="hours"></ul>
+      <p id="hours-intro" class="hours-intro"></p><ul id="hours-list" class="hours"></ul><p id="sunday-floating" class="sunday-floating"></p>
     </section>
 
     <section class="section" aria-labelledby="promos-title">
       <h2 id="promos-title"></h2>
-      <p id="promos-empty" class="empty"></p>
+      <button type="button" id="promo-reveal" class="promo-reveal" aria-expanded="false" aria-controls="promo-panel"><span aria-hidden="true">✦</span> <span id="promo-reveal-label">Scopri la sorpresa</span></button><div id="promo-panel" class="promo-panel" hidden><p id="promos-empty" class="empty"></p></div>
     </section>
 
-    <section class="section" aria-labelledby="social-title">
+    <section class="section" id="social" aria-labelledby="social-title">
       <h2 id="social-title"></h2>
       <p id="social-empty" class="empty"></p>
     </section>
