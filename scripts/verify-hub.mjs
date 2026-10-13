@@ -43,4 +43,21 @@ for (const filename of ["index.html","chi-siamo.html","privacy.html","contatti.h
   const attrs = [...content.matchAll(/(?:href|src)="(\.\/?[^"#?]+)"/g)].map(x => x[1]);
   check("Local file references resolve: " + filename, attrs.every(x => existsSync(resolve(root,x))));
 }
+// Negative tests: intentionally invalid data must fail closed.
+const badCounter = structuredClone(site);
+badCounter.categories.find(c => c.id === "rosticceria-palermitana").onlineOrderable = true;
+check("Reject counter-only items offered online", validateSiteData(badCounter).some(x => x.includes("Counter-only")));
+const badWeight = structuredClone(site);
+badWeight.categories.find(c => c.id === "rosticceria-mignon").weightIncrementKg = 0.25;
+check("Reject noncanonical mignon increments", validateSiteData(badWeight).some(x => x.includes("0.5 kg")));
+const badCapability = structuredClone(site);
+badCapability.capabilities.onlineOrdering.enabled = true;
+check("Reject enabled ordering with no destination", validateSiteData(badCapability).some(x => x.includes("requires href")));
+const badPrice = structuredClone(site);
+badPrice.menuItems[0].priceCents = -1;
+check("Reject ambiguous or invalid item prices", validateSiteData(badPrice).some(x => x.includes("price source")));
+const badDuplicate = structuredClone(site);
+badDuplicate.menuItems[1].id = badDuplicate.menuItems[0].id;
+check("Reject duplicate product IDs", validateSiteData(badDuplicate).some(x => x.includes("duplicate")));
+
 console.log("PASS", tests, "regression checks; live browser QA and commercial verification still required.");
