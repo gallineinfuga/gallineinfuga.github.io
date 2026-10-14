@@ -1,0 +1,10 @@
+# GALLINE IN FUGA — C4 / COPERTURA ROSSA: PREZZO AGGIORNATO
+**Data di rilevazione 2026-10-14 | Informazione commerciale, NON permesso comunale.**
+**Prodotto scelto come base del rendering:** MondoGazebo «3x3 MT ROSSO Gazebo pieghevole impermeabile con pareti Acciaio 3cm»; https://mondogazebo.it/gazebo-pieghevole-telaio-da-3cm/75-3x3-mt-rosso-gazebo-richiudibile-impermeabile-con-pareti.html
+**Prezzo rilevato: 275,00 € IVA inclusa**, telaio+telo+5 pareti+fascione, sacchi zavorra da riempire, corde/picchetti, borsone. Non è un modello stampato con il logo.
+**Specifiche:** 3,00x3,00m, 9m² coperti, acciaio 30x30mm, tetto rosso Oxford 600D spalmato PVC; ingombro piegato 1,45x0,25x0,25m, peso circa 28kg, altezza passaggio max 2,17m, colmo max 3,40m.
+**Da quotare:** logo originale Galline in Fuga sulle mantovane, spedizione a Palermo (isole a preventivo), riempimento zavorre, eventuali dispositivi di sicurezza; NON inventare importi. Riferimento economico di altro marchio: Ecotent stampa termica 100€/m² e grafica 55€ (non preventivo per il prodotto scelto): https://www.ecotent-gazebo.it/it/su-di-noi/servizio/faq
+**ATTENZIONE:** produttore lo definisce per uso giornaliero, non lasciarlo montato oltre 5 giorni consecutivi e richiuderlo con vento o temporale. Certificazione ignifuga del telo specifico NON riscontrata: chiedere scheda/certificato prima di uso OSP. Il Comune non ha confermato che gazebo pieghevole o logo sulla copertura siano consentiti al civico 184. Non usare i picchetti nell'asfalto senza autorizzazione.
+**Brief render fedele:** pedana studio 4x3m (12m²) oltre cordolo, marciapiede 2,50m interamente libero; copertura centrata **3x3** sul progetto, rossa a punta, senza pareti, solo logo autentico del marchio (senza reinterpretare); 4 panche, 2 tavoli alti tondi e fioriere Tymar su pedana da adattare e dimensionare. Le immagini ad acquerello sono illustrative.
+**Delta budget:** sostituire per questa variante il vecchio intervallo generico C4 €250–550 con **€275 base verificati**, più EXTRA NON QUANTIFICATI. Non confondere con copertura 4×3 su misura.
+**Notion:** https://app.notion.com/p/3f937b3d340f81ada375c2ca000f6eb0
