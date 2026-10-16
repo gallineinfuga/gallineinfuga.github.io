@@ -625,7 +625,7 @@
     {
       "id": "calzone-classico",
       "categoryId": "pizzeria",
-      "priceGroup": "special",
+      "priceGroup": "calzone-classico-unico",
       "name": {
         "it": "CALZONE CLASSICO",
         "en": "CALZONE CLASSICO"
@@ -1142,6 +1142,24 @@
             "en": "Family"
           },
           "priceCents": 2000
+        }
+      ]
+    },
+    {
+      "id": "calzone-classico-unico",
+      "categoryId": "pizzeria",
+      "name": {
+        "it": "Calzone classico — formato unico",
+        "en": "Classic calzone — single size"
+      },
+      "prices": [
+        {
+          "id": "unico",
+          "label": {
+            "it": "Unico",
+            "en": "Single size"
+          },
+          "priceCents": 750
         }
       ]
     }
