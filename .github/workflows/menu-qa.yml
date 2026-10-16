@@ -1,0 +1,31 @@
+name: Galline menu QA (2026-10-16)
+on:
+  pull_request:
+    paths:
+      - 'data/site.json'
+      - 'app.js'
+      - 'domain.js'
+      - 'sw.js'
+      - 'scripts/verify-menu-20261016.mjs'
+      - '.github/workflows/menu-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  menu-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JS syntax
+        run: |
+          node --check app.js
+          node --check domain.js
+          node --check sw.js
+      - name: Validate commercial menu rules
+        run: node scripts/verify-menu-20261016.mjs
