@@ -207,7 +207,7 @@ function render(site, locale) {
           const regular = group?.prices.find(price => price.id === "normale");
           const family = group?.prices.find(price => price.id === "familiare");
           const single = group?.prices.find(price => price.id === "unico");
-          row.append(node("strong", { className: "price price--choice", text: regular ? money(pizzaPriceCents(site, group, "normale")) : single ? money(single.priceCents) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: regular ? money(pizzaPriceCents(site, group, "normale")) : single ? money(pizzaPriceCents(site, group, "unico")) : "—" }));
           row.append(node("strong", { className: "price price--choice", text: family ? money(pizzaPriceCents(site, group, "familiare")) : "—" }));
         }
         if (showPrices) {
