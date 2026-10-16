@@ -307,8 +307,8 @@
         "en": "BUFALINA"
       },
       "ingredients": {
-        "it": "Pomodoro, mozzarella di bufala, pomodorini",
-        "en": "Tomato, buffalo mozzarella, cherry tomatoes"
+        "it": "Pomodoro, mozzarella di bufala",
+        "en": "Tomato, buffalo mozzarella"
       },
       "editorial": {
         "site": {
@@ -316,12 +316,12 @@
           "en": ""
         },
         "hub": {
-          "it": "Pomodoro, mozzarella di bufala, pomodorini",
-          "en": "Tomato, buffalo mozzarella, cherry tomatoes"
+          "it": "Pomodoro, mozzarella di bufala",
+          "en": "Tomato, buffalo mozzarella"
         },
         "order": {
-          "it": "Pomodoro, mozzarella di bufala, pomodorini",
-          "en": "Tomato, buffalo mozzarella, cherry tomatoes"
+          "it": "Pomodoro, mozzarella di bufala",
+          "en": "Tomato, buffalo mozzarella"
         }
       }
     },
@@ -430,33 +430,6 @@
         "order": {
           "it": "Pomodoro, mozzarella, cipolla, tonno",
           "en": "Tomato, mozzarella, onion, tuna"
-        }
-      }
-    },
-    {
-      "id": "rustica",
-      "categoryId": "pizzeria",
-      "priceGroup": "special",
-      "name": {
-        "it": "RUSTICA",
-        "en": "RUSTICA"
-      },
-      "ingredients": {
-        "it": "Pomodoro, mozzarella, cipolla, pancetta",
-        "en": "Tomato, mozzarella, onion, pancetta"
-      },
-      "editorial": {
-        "site": {
-          "it": "",
-          "en": ""
-        },
-        "hub": {
-          "it": "Pomodoro, mozzarella, cipolla, pancetta",
-          "en": "Tomato, mozzarella, onion, pancetta"
-        },
-        "order": {
-          "it": "Pomodoro, mozzarella, cipolla, pancetta",
-          "en": "Tomato, mozzarella, onion, pancetta"
         }
       }
     },
@@ -623,33 +596,6 @@
       }
     },
     {
-      "id": "la-migliore",
-      "categoryId": "pizzeria",
-      "priceGroup": "special",
-      "name": {
-        "it": "LA MIGLIORE",
-        "en": "LA MIGLIORE"
-      },
-      "ingredients": {
-        "it": "Pomodoro, mozzarella, prosciutto cotto, funghi champignon",
-        "en": "Tomato, mozzarella, cooked ham, button mushrooms"
-      },
-      "editorial": {
-        "site": {
-          "it": "",
-          "en": ""
-        },
-        "hub": {
-          "it": "Pomodoro, mozzarella, prosciutto cotto, funghi champignon",
-          "en": "Tomato, mozzarella, cooked ham, button mushrooms"
-        },
-        "order": {
-          "it": "Pomodoro, mozzarella, prosciutto cotto, funghi champignon",
-          "en": "Tomato, mozzarella, cooked ham, button mushrooms"
-        }
-      }
-    },
-    {
       "id": "capricciosa",
       "categoryId": "pizzeria",
       "priceGroup": "special",
@@ -679,7 +625,7 @@
     {
       "id": "calzone-classico",
       "categoryId": "pizzeria",
-      "priceGroup": "special",
+      "priceGroup": "calzone-classico-unico",
       "name": {
         "it": "CALZONE CLASSICO",
         "en": "CALZONE CLASSICO"
@@ -700,33 +646,6 @@
         "order": {
           "it": "Pomodoro, mozzarella, prosciutto cotto",
           "en": "Tomato, mozzarella, cooked ham"
-        }
-      }
-    },
-    {
-      "id": "pistacchiosa",
-      "categoryId": "pizzeria",
-      "priceGroup": "ma-che-bonta",
-      "name": {
-        "it": "PISTACCHIOSA",
-        "en": "PISTACCHIOSA"
-      },
-      "ingredients": {
-        "it": "Mozzarella in cottura, mortadella in uscita, burrata in uscita, crema di pistacchio in uscita, granella di pistacchio",
-        "en": "Baked mozzarella, mortadella, burrata, pistachio cream and chopped pistachios added after baking"
-      },
-      "editorial": {
-        "site": {
-          "it": "Mortadella, burrata e crema di pistacchio vengono aggiunte in uscita, con la granella a completare la pizza.",
-          "en": "Mortadella, burrata and pistachio cream are added after baking, finished with chopped pistachios."
-        },
-        "hub": {
-          "it": "Mozzarella in cottura, mortadella in uscita, burrata in uscita, crema di pistacchio in uscita, granella di pistacchio",
-          "en": "Baked mozzarella, mortadella, burrata, pistachio cream and chopped pistachios added after baking"
-        },
-        "order": {
-          "it": "Mozzarella in cottura, mortadella in uscita, burrata in uscita, crema di pistacchio in uscita, granella di pistacchio",
-          "en": "Baked mozzarella, mortadella, burrata, pistachio cream and chopped pistachios added after baking"
         }
       }
     },
@@ -764,7 +683,7 @@
         "it": "Mezzo pollo allo spiedo",
         "en": "Half rotisserie chicken"
       },
-      "priceCents": 800,
+      "priceCents": 700,
       "editorial": {
         "site": {
           "it": "Accompagnato da patatine fritte o al forno e dalla salsicceria tipica della casa.",
@@ -787,7 +706,7 @@
         "it": "Pollo intero allo spiedo",
         "en": "Whole rotisserie chicken"
       },
-      "priceCents": 1600,
+      "priceCents": 1400,
       "editorial": {
         "site": {
           "it": "Accompagnato da patatine fritte o al forno e dalla salsicceria tipica della casa.",
@@ -1225,11 +1144,41 @@
           "priceCents": 2000
         }
       ]
+    },
+    {
+      "id": "calzone-classico-unico",
+      "categoryId": "pizzeria",
+      "name": {
+        "it": "Calzone classico — formato unico",
+        "en": "Classic calzone — single size"
+      },
+      "prices": [
+        {
+          "id": "unico",
+          "label": {
+            "it": "Unico",
+            "en": "Single size"
+          },
+          "priceCents": 750
+        }
+      ]
     }
   ],
   "pizzaAdditions": {
     "regularCents": 150,
     "familyCents": 300
   },
-  "editorialSchemaVersion": "1.0.0"
+  "editorialSchemaVersion": "1.0.0",
+  "weekdayPizzaPromotion": {
+    "days": [
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday"
+    ],
+    "regularCents": 600,
+    "familyCents": 1200,
+    "timeZone": "Europe/Rome"
+  }
 }

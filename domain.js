@@ -12,6 +12,20 @@ export function normalizeLocale(value) {
   return value === "en" ? "en" : "it";
 }
 
+export function pizzaPriceCents(site, group, variant, at = new Date()) {
+  const base = group?.prices?.find((price) => price.id === variant)?.priceCents;
+  if (base === undefined) return null;
+  const offer = site.weekdayPizzaPromotion;
+  if (!offer || !["normale", "familiare", "unico"].includes(variant)) return base;
+  const day = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    timeZone: offer.timeZone,
+  }).format(at).toLowerCase();
+  return offer.days.includes(day)
+    ? (variant === "familiare" ? offer.familyCents : offer.regularCents)
+    : base;
+}
+
 export function localized(value, locale) {
   if (typeof value === "string") return value;
   return value?.[locale] ?? value?.it ?? value?.en ?? "";
@@ -238,6 +252,16 @@ export function validateSiteData(site) {
       errors.push(`Missing opening-hours value: ${day}`);
     }
   }
+
+  const offer = site.weekdayPizzaPromotion;
+  if (offer !== undefined && (
+    !Array.isArray(offer.days) || offer.days.length === 0 ||
+    new Set(offer.days).size !== offer.days.length ||
+    offer.days.some(day => !DAY_ORDER.includes(day)) ||
+    offer.timeZone !== "Europe/Rome" ||
+    !Number.isSafeInteger(offer.regularCents) || offer.regularCents <= 0 ||
+    !Number.isSafeInteger(offer.familyCents) || offer.familyCents <= 0
+  )) errors.push("Invalid weekday pizza promotion");
 
   errors.push(...capabilityErrors(site));
   return errors;

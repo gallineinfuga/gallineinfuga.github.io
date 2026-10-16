@@ -1,4 +1,4 @@
-const CACHE = "galline-hub-v0.4-full-menu";
+const CACHE = "galline-hub-v0.5-menu-20261016";
 const CORE = [
   "./",
   "./index.html",
