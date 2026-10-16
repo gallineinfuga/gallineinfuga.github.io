@@ -2,6 +2,7 @@ import {
   DAY_ORDER,
   localized,
   normalizeLocale,
+  pizzaPriceCents,
   validateSiteData,
 } from "./domain.js";
 
@@ -159,10 +160,6 @@ function render(site, locale) {
   menuTitle.textContent = t.menu;
   document.querySelector("#menu-hint").textContent = t.menuHint + " " + t.weekdayPizzaOffer;
   const menu = document.querySelector("#menu-grid");
-  // Applied using the restaurant's local day, not the visitor's device timezone.
-  const promo = site.weekdayPizzaPromotion;
-  const dayInRome = new Intl.DateTimeFormat("en-US", { weekday: "long", timeZone: promo.timeZone }).format(new Date()).toLowerCase();
-  const weekdayPizzaOfferActive = promo.days.includes(dayInRome);
   const editorialMode = new URLSearchParams(location.search).get("view") === "site";
   const viewSwitch = document.querySelector("#menu-view-switch");
   viewSwitch.replaceChildren(
@@ -210,8 +207,8 @@ function render(site, locale) {
           const regular = group?.prices.find(price => price.id === "normale");
           const family = group?.prices.find(price => price.id === "familiare");
           const single = group?.prices.find(price => price.id === "unico");
-          row.append(node("strong", { className: "price price--choice", text: regular ? money(weekdayPizzaOfferActive ? promo.regularCents : regular.priceCents) : single ? money(single.priceCents) : "—" }));
-          row.append(node("strong", { className: "price price--choice", text: family ? money(weekdayPizzaOfferActive ? promo.familyCents : family.priceCents) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: regular ? money(pizzaPriceCents(site, group, "normale")) : single ? money(single.priceCents) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: family ? money(pizzaPriceCents(site, group, "familiare")) : "—" }));
         }
         if (showPrices) {
           const formatted = item.priceChoicesCents
