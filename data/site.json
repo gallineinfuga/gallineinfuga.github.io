@@ -996,7 +996,7 @@
         "it": "Acqua · 50 cl",
         "en": "Water · 50 cl"
       },
-      "priceCents": 120,
+      "priceCents": 100,
       "editorial": {
         "site": {
           "it": "",
@@ -1019,7 +1019,7 @@
         "it": "Coca-Cola · 33 cl",
         "en": "Coca-Cola · 33 cl"
       },
-      "priceCents": 200,
+      "priceCents": 150,
       "editorial": {
         "site": {
           "it": "",
@@ -1042,7 +1042,7 @@
         "it": "Coca-Cola Zero · 33 cl",
         "en": "Coca-Cola Zero · 33 cl"
       },
-      "priceCents": 200,
+      "priceCents": 150,
       "editorial": {
         "site": {
           "it": "",
@@ -1065,7 +1065,7 @@
         "it": "Fanta · 33 cl",
         "en": "Fanta · 33 cl"
       },
-      "priceCents": 200,
+      "priceCents": 150,
       "editorial": {
         "site": {
           "it": "",
@@ -1088,7 +1088,7 @@
         "it": "Sprite · 33 cl",
         "en": "Sprite · 33 cl"
       },
-      "priceCents": 200,
+      "priceCents": 150,
       "editorial": {
         "site": {
           "it": "",
@@ -1105,28 +1105,140 @@
       }
     },
     {
-      "id": "birre-assortite",
+      "id": "chinotto",
       "categoryId": "bevande",
       "name": {
-        "it": "Birre assortite · 33 cl",
-        "en": "Assorted beers · 33 cl"
+        "it": "Chinotto",
+        "en": "Chinotto"
       },
-      "priceChoicesCents": [
-        250,
-        300
-      ],
+      "priceCents": 150,
       "editorial": {
         "site": {
           "it": "",
           "en": ""
         },
         "hub": {
-          "it": "Birre assortite · 33 cl",
-          "en": "Assorted beers · 33 cl"
+          "it": "Chinotto",
+          "en": "Chinotto"
         },
         "order": {
-          "it": "Birre assortite · 33 cl",
-          "en": "Assorted beers · 33 cl"
+          "it": "Chinotto",
+          "en": "Chinotto"
+        }
+      }
+    },
+    {
+      "id": "te-pesca",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Tè alla pesca",
+        "en": "Peach iced tea"
+      },
+      "priceCents": 150,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Tè alla pesca",
+          "en": "Peach iced tea"
+        },
+        "order": {
+          "it": "Tè alla pesca",
+          "en": "Peach iced tea"
+        }
+      }
+    },
+    {
+      "id": "te-limone",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Tè al limone",
+        "en": "Lemon iced tea"
+      },
+      "priceCents": 150,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Tè al limone",
+          "en": "Lemon iced tea"
+        },
+        "order": {
+          "it": "Tè al limone",
+          "en": "Lemon iced tea"
+        }
+      }
+    },
+    {
+      "id": "red-bull",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Red Bull",
+        "en": "Red Bull"
+      },
+      "priceCents": 150,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Red Bull",
+          "en": "Red Bull"
+        },
+        "order": {
+          "it": "Red Bull",
+          "en": "Red Bull"
+        }
+      }
+    },
+    {
+      "id": "birra-moretti-33",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Birra Moretti · 33 cl",
+        "en": "Moretti beer · 33 cl"
+      },
+      "priceCents": 150,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Birra Moretti · 33 cl",
+          "en": "Moretti beer · 33 cl"
+        },
+        "order": {
+          "it": "Birra Moretti · 33 cl",
+          "en": "Moretti beer · 33 cl"
+        }
+      }
+    },
+    {
+      "id": "birra-moretti-66",
+      "categoryId": "bevande",
+      "name": {
+        "it": "Birra Moretti · 66 cl",
+        "en": "Moretti beer · 66 cl"
+      },
+      "priceCents": 250,
+      "editorial": {
+        "site": {
+          "it": "",
+          "en": ""
+        },
+        "hub": {
+          "it": "Birra Moretti · 66 cl",
+          "en": "Moretti beer · 66 cl"
+        },
+        "order": {
+          "it": "Birra Moretti · 66 cl",
+          "en": "Moretti beer · 66 cl"
         }
       }
     }
