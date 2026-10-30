@@ -2,6 +2,7 @@ import {
   DAY_ORDER,
   localized,
   normalizeLocale,
+  pizzaPriceCents,
   validateSiteData,
 } from "./domain.js";
 
@@ -16,6 +17,7 @@ const copy = {
     menuBrowse: "Sfoglia il menù",
     menuPrice: "Prezzo",
     addedPizzaExtras: "Aggiunte pizza",
+    weekdayPizzaOffer: "Dal lunedì al venerdì: tutte le pizze normali a 6 € e familiari a 12 €.",
     regular: "normale",
     family: "familiare",
     allergy: "Per intolleranze e allergie, chiedi al nostro staff la lista degli allergeni.",
@@ -48,6 +50,7 @@ const copy = {
     menuBrowse: "Browse the menu",
     menuPrice: "Price",
     addedPizzaExtras: "Pizza extras",
+    weekdayPizzaOffer: "Monday to Friday: all regular pizzas €6 and family pizzas €12.",
     regular: "regular",
     family: "family",
     allergy: "For intolerances and allergies, ask our staff for the allergen list.",
@@ -155,7 +158,7 @@ function render(site, locale) {
 
   const menuTitle = document.querySelector("#menu-title");
   menuTitle.textContent = t.menu;
-  document.querySelector("#menu-hint").textContent = t.menuHint;
+  document.querySelector("#menu-hint").textContent = `${t.menuHint} ${t.weekdayPizzaOffer}`;
   const menu = document.querySelector("#menu-grid");
   const editorialMode = new URLSearchParams(location.search).get("view") === "site";
   const viewSwitch = document.querySelector("#menu-view-switch");
@@ -204,8 +207,8 @@ function render(site, locale) {
           const regular = group?.prices.find(price => price.id === "normale");
           const family = group?.prices.find(price => price.id === "familiare");
           const single = group?.prices.find(price => price.id === "unico");
-          row.append(node("strong", { className: "price price--choice", text: regular ? money(regular.priceCents) : single ? money(single.priceCents) : "—" }));
-          row.append(node("strong", { className: "price price--choice", text: family ? money(family.priceCents) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: regular ? money(pizzaPriceCents(site, group, "normale")) : single ? money(pizzaPriceCents(site, group, "unico")) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: family ? money(pizzaPriceCents(site, group, "familiare")) : "—" }));
         }
         if (showPrices) {
           const formatted = item.priceChoicesCents
