@@ -27,11 +27,22 @@
       "id": "instagram",
       "type": "instagram",
       "label": "Instagram",
-      "url": "",
+      "url": "https://www.instagram.com/gallineinfugapalermo/",
       "iconText": "IG",
-      "enabled": false,
+      "enabled": true,
       "featured": false,
       "order": 3
+    },
+    {
+      "id": "facebook",
+      "type": "facebook",
+      "label": "Facebook",
+      "subtitle": "Seguici su Facebook",
+      "url": "https://www.facebook.com/people/Galline-in-Fuga/61591158700839/",
+      "iconText": "FB",
+      "enabled": true,
+      "featured": false,
+      "order": 4
     },
     {
       "id": "reviews",
