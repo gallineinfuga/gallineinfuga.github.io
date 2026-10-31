@@ -20,3 +20,17 @@ assert.equal(pizzaPriceCents(site,special,"normale",new Date(date)),r);
 assert.equal(pizzaPriceCents(site,special,"familiare",new Date(date)),f);
 }
 console.log("PASS menu 30/10: 43 voci, 21 pizze, 11 bevande, prezzi Rome e ordini inattivi.");
+
+import { readFileSync as readFile } from "node:fs";
+const hubHtml=readFile(new URL("../index.html", import.meta.url),"utf8");
+const links=JSON.parse(readFile(new URL("../config/links.json", import.meta.url),"utf8"));
+assert.equal(site.hours.sunday,"hours-pending");
+assert(hubHtml.includes("domenica aperto, orario da confermare"));
+assert(!hubHtml.includes("091 673 4874") && !hubHtml.includes("0916734874"));
+assert(hubHtml.includes('href="tel:+393337309933"'));
+const activeSocial=links.items.filter(x=>x.enabled && ["instagram","facebook"].includes(x.type));
+assert.equal(activeSocial.length,2);
+assert.equal(activeSocial.find(x=>x.id==="instagram")?.url,"https://www.instagram.com/gallineinfugapalermo/");
+assert.equal(activeSocial.find(x=>x.id==="facebook")?.url,"https://www.facebook.com/people/Galline-in-Fuga/61591158700839/");
+assert(!links.items.some(x=>x.type==="tiktok" && x.enabled));
+console.log("PASS official contact, Sunday status and source-verified social links.");
