@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#a81818">
-  <meta name="description" content="Galline in Fuga — menu, ordini, contatti e novità.">
+  <meta name="description" content="Galline in Fuga Palermo — Instagram, Facebook, WhatsApp e indicazioni. Il menù è in aggiornamento.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' https://unpkg.com; img-src 'self' data: https://tile.openstreetmap.org https://unpkg.com; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; manifest-src 'self'; worker-src 'self'">
   <link rel="canonical" href="https://gallineinfuga.github.io/">
@@ -15,7 +15,7 @@
 </head>
 <body>
   <header class="hero">
-    <a class="skip-link" href="#menu">Vai al menù</a>
+    <a class="skip-link" href="#social-link-hub">Vai ai collegamenti</a>
     <nav class="topbar" aria-label="Selezione lingua">
       <a class="brand-mark" href="./" aria-label="Galline in Fuga — Home">GIF</a>
       <div class="languages">
@@ -29,13 +29,24 @@
       <h1 id="brand-name">Galline in Fuga</h1>
       <p id="service-mode"></p>
       <p id="editorial-intro" class="editorial-intro"></p>
-      <div id="primary-actions" class="actions"></div>
+      <div id="primary-actions" class="actions" hidden></div>
+      <section class="hub-social-panel" id="social-link-hub" aria-labelledby="hub-social-title">
+        <h2 id="hub-social-title">Seguici e contattaci</h2>
+        <p>Un unico punto per restare in contatto con Galline in Fuga.</p>
+        <nav class="hub-social-grid" aria-label="Collegamenti ufficiali">
+          <a class="hub-social-button" href="https://www.instagram.com/gallineinfugapalermo/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◎</span> Instagram <span class="hub-arrow" aria-hidden="true">↗</span></a>
+          <a class="hub-social-button" href="https://www.facebook.com/people/Galline-in-Fuga/61591158700839/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">f</span> Facebook <span class="hub-arrow" aria-hidden="true">↗</span></a>
+          <a class="hub-social-button" href="https://wa.me/393337309933" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">✆</span> WhatsApp <span class="hub-arrow" aria-hidden="true">↗</span></a>
+          <a class="hub-social-button" href="#dove-siamo"><span aria-hidden="true">⌖</span> Dove siamo <span class="hub-arrow" aria-hidden="true">↓</span></a>
+        </nav>
+        <p class="hub-social-note">Menù e sito completo in aggiornamento.</p>
+      </section>
       <p id="app-status" class="status" hidden></p>
     </div>
   </header>
 
   <main>
-    <section id="menu" class="section" aria-labelledby="menu-title">
+    <section id="menu" class="section" hidden aria-labelledby="menu-title">
       <h2 id="menu-title"></h2>
       <p id="menu-hint" class="meta"></p>
       <p id="menu-editorial" class="editorial-intro editorial-intro--menu"></p>
@@ -45,30 +56,31 @@
       <p id="menu-allergies" class="meta menu-notice"></p>
     </section>
 
-    <section class="section section--panel" aria-labelledby="hours-title">
+    <section class="section section--panel" aria-labelledby="hours-title" hidden>
       <h2 id="hours-title"></h2>
       <ul id="hours-list" class="hours"></ul>
     </section>
 
-    <section class="section" aria-labelledby="promos-title">
+    <section class="section" aria-labelledby="promos-title" hidden>
       <h2 id="promos-title"></h2>
       <p id="promos-empty" class="empty"></p>
     </section>
 
-    <section class="section" aria-labelledby="social-title">
+    <section class="section" aria-labelledby="social-title" hidden>
       <h2 id="social-title"></h2>
       <p id="social-empty" class="empty"></p>
     </section>
 
-    <section class="section section--panel" aria-labelledby="reviews-title">
+    <section class="section section--panel" aria-labelledby="reviews-title" hidden>
       <h2 id="reviews-title"></h2>
       <div id="review-slot" class="actions"></div>
     </section>
 
+    <section class="opening-note section section--panel" aria-label="Orari di apertura"><h2>Orari</h2><p><strong>Lunedì–sabato: 16:00–23:00</strong><br><strong>Domenica: aperti</strong> · orario domenicale in aggiornamento</p></section>
+
     <section id="contatti-diretti" class="section section--panel contact-section" aria-labelledby="contact-title">
       <h2 id="contact-title">Parla con noi</h2>
       <div class="contact-actions">
-        <a class="action contact-action" href="tel:+390916734874" aria-label="Chiama il telefono fisso 091 673 4874"><span aria-hidden="true">☎</span><span>Chiama il fisso<br><small>091 673 4874</small></span></a>
         <a class="action contact-action" href="https://wa.me/393337309933" aria-label="Apri WhatsApp per chiamare Galline in Fuga"><span aria-hidden="true">◉</span><span>Chiama su WhatsApp<br><small>Apri la chat e tocca Chiama</small></span></a>
         <a class="action contact-action" href="https://wa.me/393337309933?text=Ciao%20Galline%20in%20Fuga%21%20Vorrei%20ricevere%20informazioni%20sul%20menu%20e%20fare%20un%20ordine." aria-label="Scrivi su WhatsApp con messaggio precompilato"><span aria-hidden="true">✉</span><span>Scrivi su WhatsApp<br><small>Messaggio modificabile</small></span></a>
         <a class="action contact-action" href="#dove-siamo" aria-label="Visualizza la mappa e le indicazioni"><span aria-hidden="true">⌖</span><span>Dove siamo<br><small>Mappa e indicazioni</small></span></a>
@@ -87,7 +99,7 @@
       </div>
     </section>
     <noscript>
-      <p class="noscript">Per usare tutte le funzioni dell’HUB è necessario JavaScript. Gli orari principali restano: lunedì–sabato 16:00–23:00, domenica chiuso.</p>
+      <p class="noscript">Per usare tutte le funzioni dell’HUB è necessario JavaScript. Orari: lunedì–sabato 16:00–23:00; domenica aperti, orario in aggiornamento.</p>
     </noscript>
   </main>
 
