@@ -1,0 +1,27 @@
+name: Menu release QA
+on:
+  pull_request:
+    paths:
+      - "data/site.json"
+      - "domain.js"
+      - "app.js"
+      - "scripts/verify-menu-20261030.mjs"
+      - ".github/workflows/verify-menu-20261030.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check-menu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate approved menu data
+        run: node scripts/verify-menu-20261030.mjs
+      - name: Syntax check application
+        run: |
+          node --check app.js
+          node --check domain.js

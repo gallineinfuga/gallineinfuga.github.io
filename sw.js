@@ -1,4 +1,4 @@
-const CACHE = "galline-hub-v0.4-full-menu";
+const CACHE = "galline-hub-v0.5-contacts-social";
 const CORE = [
   "./",
   "./index.html",
@@ -6,6 +6,8 @@ const CORE = [
   "./app.js",
   "./domain.js",
   "./data/site.json",
+  "./config/links.json",
+  "./contatti.html",
   "./manifest.webmanifest",
   "./privacy.html",
   "./404.html",

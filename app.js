@@ -2,6 +2,7 @@ import {
   DAY_ORDER,
   localized,
   normalizeLocale,
+  pizzaPriceCents,
   validateSiteData,
 } from "./domain.js";
 
@@ -16,6 +17,7 @@ const copy = {
     menuBrowse: "Sfoglia il menù",
     menuPrice: "Prezzo",
     addedPizzaExtras: "Aggiunte pizza",
+    weekdayPizzaOffer: "Dal lunedì al venerdì: tutte le pizze normali a 6 € e familiari a 12 €.",
     regular: "normale",
     family: "familiare",
     allergy: "Per intolleranze e allergie, chiedi al nostro staff la lista degli allergeni.",
@@ -37,6 +39,7 @@ const copy = {
     noSocial: "I collegamenti social saranno pubblicati qui.",
     openLabel: "Aperto",
     closed: "Chiuso",
+    openHoursPending: "Aperto · orario da confermare",
   },
   en: {
     intro: "Your appetite has found a home! Pizzas, rotisserie chicken and Sicilian specialities, including traditional savouries. Choose takeaway or home delivery.",
@@ -48,6 +51,7 @@ const copy = {
     menuBrowse: "Browse the menu",
     menuPrice: "Price",
     addedPizzaExtras: "Pizza extras",
+    weekdayPizzaOffer: "Monday to Friday: all regular pizzas €6 and family pizzas €12.",
     regular: "regular",
     family: "family",
     allergy: "For intolerances and allergies, ask our staff for the allergen list.",
@@ -69,6 +73,7 @@ const copy = {
     noSocial: "Social links will be published here.",
     openLabel: "Open",
     closed: "Closed",
+    openHoursPending: "Open · hours to be confirmed",
   },
 };
 
@@ -155,7 +160,7 @@ function render(site, locale) {
 
   const menuTitle = document.querySelector("#menu-title");
   menuTitle.textContent = t.menu;
-  document.querySelector("#menu-hint").textContent = t.menuHint;
+  document.querySelector("#menu-hint").textContent = `${t.menuHint} ${t.weekdayPizzaOffer}`;
   const menu = document.querySelector("#menu-grid");
   const editorialMode = new URLSearchParams(location.search).get("view") === "site";
   const viewSwitch = document.querySelector("#menu-view-switch");
@@ -204,8 +209,8 @@ function render(site, locale) {
           const regular = group?.prices.find(price => price.id === "normale");
           const family = group?.prices.find(price => price.id === "familiare");
           const single = group?.prices.find(price => price.id === "unico");
-          row.append(node("strong", { className: "price price--choice", text: regular ? money(regular.priceCents) : single ? money(single.priceCents) : "—" }));
-          row.append(node("strong", { className: "price price--choice", text: family ? money(family.priceCents) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: regular ? money(pizzaPriceCents(site, group, "normale")) : single ? money(pizzaPriceCents(site, group, "unico")) : "—" }));
+          row.append(node("strong", { className: "price price--choice", text: family ? money(pizzaPriceCents(site, group, "familiare")) : "—" }));
         }
         if (showPrices) {
           const formatted = item.priceChoicesCents
@@ -269,7 +274,9 @@ function render(site, locale) {
         text:
           site.hours[day] === "closed"
             ? t.closed
-            : site.hours[day],
+            : site.hours[day] === "hours-pending"
+              ? t.openHoursPending
+              : site.hours[day],
       }),
     );
     hours.append(row);
@@ -282,6 +289,13 @@ function render(site, locale) {
   document.querySelector("#social-title").textContent = t.social;
   document.querySelector("#social-empty").textContent =
     site.social.length === 0 ? t.noSocial : "";
+  const socialSlot = document.querySelector("#social-links");
+  socialSlot.replaceChildren(...site.social.map((item) => {
+    const link = node("a", { className: "action", text: item.label, href: item.url });
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    return link;
+  }));
 
   document.querySelector("#reviews-title").textContent = t.reviews;
   const reviewSlot = document.querySelector("#review-slot");
@@ -306,6 +320,28 @@ async function main() {
   if (!response.ok) throw new Error("Unable to load site configuration");
 
   const site = await response.json();
+  // The verified social destinations live in the public links manifest.
+  // Failure to fetch it must not disable menu, hours or contact details.
+  let socialLinks = [];
+  try {
+    const linksResponse = await fetch("./config/links.json", { cache: "no-store" });
+    if (linksResponse.ok) {
+      const manifest = await linksResponse.json();
+      const socialHosts = { instagram: "instagram.com", facebook: "facebook.com" };
+      socialLinks = (Array.isArray(manifest.items) ? manifest.items : [])
+        .filter((item) => item?.enabled === true && socialHosts[item.type])
+        .filter((item) => {
+          try {
+            const url = new URL(item.url);
+            const host = url.hostname.toLowerCase();
+            const allowed = socialHosts[item.type];
+            return url.protocol === "https:" && (host === allowed || host === "www." + allowed);
+          } catch { return false; }
+        })
+        .map(({ label, url }) => ({ label, url }));
+    }
+  } catch { /* Social links are optional: fail closed on invalid config. */ }
+  site.social = socialLinks;
   const errors = validateSiteData(site);
   if (errors.length > 0) {
     throw new Error(`Invalid site configuration: ${errors.join("; ")}`);
