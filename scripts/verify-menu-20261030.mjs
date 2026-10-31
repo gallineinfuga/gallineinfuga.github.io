@@ -34,3 +34,11 @@ assert.equal(activeSocial.find(x=>x.id==="instagram")?.url,"https://www.instagra
 assert.equal(activeSocial.find(x=>x.id==="facebook")?.url,"https://www.facebook.com/people/Galline-in-Fuga/61591158700839/");
 assert(!links.items.some(x=>x.type==="tiktok" && x.enabled));
 console.log("PASS official contact, Sunday status and source-verified social links.");
+
+const contactHtml=readFile(new URL("../contatti.html", import.meta.url),"utf8");
+const worker=readFile(new URL("../sw.js", import.meta.url),"utf8");
+assert(!contactHtml.includes("091 673 4874") && !contactHtml.includes("0916734874"));
+assert(contactHtml.includes('href="tel:+393337309933"'));
+assert(worker.includes('"./config/links.json"'));
+assert(worker.includes('"./contatti.html"'));
+console.log("PASS contact details and offline social/contact caching.");
